@@ -63,7 +63,7 @@ export default {
 };
 </script>
 
-<style lang="sass">
+<style lang="scss">
 @import "../../node_modules/swiper/dist/css/swiper.min.css";
   .swiper-container {
         width: 80%;

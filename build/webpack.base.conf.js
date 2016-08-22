@@ -81,7 +81,8 @@ module.exports = {
         exclude: /node_modules|vue\/dist|vue-router\/|vue-loader\/|vue-hot-reload-api\//,
         loader: 'babel'
     },
-    { test: /\.scss$/, loader: 'style!css!sass?sourceMap'},
+    // { test: /\.scss$/, loader: 'style!css!sass?sourceMap'},
+    { test: /\.scss$/, loader: ["style", "css?sourceMap", "sass?sourceMap"]},
     {
         test: /\.(gif|jpg|png|woff|svg|eot|ttf)\??.*$/, loader: 'url-loader?limit=50000&name=[path][name].[ext]'
     },
@@ -91,6 +92,8 @@ module.exports = {
     formatter: require('eslint-friendly-formatter')
   },
   vue: {
-    // loaders: utils.cssLoaders()
+      loaders: {
+         'scss': 'vue-style!css!sass'
+      }
   }
 }

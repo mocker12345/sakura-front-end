@@ -108,7 +108,7 @@ export default {
 };
 </script>
 
-<style lang="sass">
+<style lang="scss">
     .card {
         box-shadow: 0 0 0 !important;
         &:hover {

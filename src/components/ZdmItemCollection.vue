@@ -35,7 +35,7 @@ export default {
 }
 </script>
 
-<style lang="sass">
+<style lang="scss">
     .zdm-item-collection {
         margin-top: 15px;
     }

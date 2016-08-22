@@ -40,7 +40,7 @@ export default {
 };
 </script>
 
-<style lang="sass">
+<style lang="scss">
     @import "../assets/scss/variables.scss";
     .header-bar {
         height: auto !important;

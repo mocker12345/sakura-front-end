@@ -35,7 +35,7 @@ export default {
 }
 </script>
 
-<style lang="sass">
+<style lang="scss">
     .item-collection {
         // padding: 20px;
     }

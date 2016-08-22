@@ -42,7 +42,7 @@ export default {
 };
 </script>
 
-<style lang="sass">
+<style lang="scss">
     .result-item {
         padding: 20px;
         overflow: hidden;
