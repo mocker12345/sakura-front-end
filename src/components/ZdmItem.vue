@@ -43,6 +43,7 @@ export default {
 </script>
 
 <style lang="scss">
+    @import "../assets/scss/common.scss";
     .result-item {
         padding: 20px;
         overflow: hidden;
@@ -123,35 +124,6 @@ export default {
     }
 
     .loading {
-        // position: absolute;
-        // width: 20px;
-        // height: 20px;
-        // border: 2px solid #ccc;
-        // border-left: 2px red solid;
-        // left: 50%;
-        // top: 50%;
-        // margin: -12px 0 0 -12px;
-        // border-radius: 50%;
-        // -webkit-animation: loading .7s linear infinite;
-        // animation: loading .7s linear infinite;
-        // display: block;
-        // // display: none;
-        // &:after {
-        //     position: absolute;
-        //
-        // }
-    }
-    .f-l {
-        float: left;
-    }
-    .f-r {
-        float: right;
-    }
-    .clearfix{
-        &:before, &:after {
-            clear: both;
-            content: '';
-            display: table;
-        }
+
     }
 </style>

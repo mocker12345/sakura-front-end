@@ -6,6 +6,7 @@ import VueResource from 'vue-resource'
 import App from './App.vue'
 import IndexView from './components/IndexView.vue'
 import ZdmView from './components/ZdmView.vue'
+import CategoryView from './components/CategoryView.vue'
 
 // install router
 Vue.use(Router)
@@ -34,6 +35,9 @@ router.map({
     },
     '/zdm': {
         component: ZdmView
+    },
+    '/category': {
+        component: CategoryView
     }
 })
 
