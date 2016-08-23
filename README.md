@@ -1,4 +1,4 @@
-# shop-project
+# shop-project [New]
 
 > shop for coder
 
