@@ -27,7 +27,9 @@ export default {
         };
     },
     computed: {},
-    ready() {},
+    ready() {
+        $(".button-collapse").sideNav();
+    },
     attached() {},
     methods: {
     },
