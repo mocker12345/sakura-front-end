@@ -2,8 +2,9 @@
 
   <div class="item-collection container">
     <ul class="item row">
-        <item>
-        </item>
+        <item></item>
+        <item></item>
+        <item></item>
     </ul>
   </div>
 </template>
