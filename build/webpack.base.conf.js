@@ -83,9 +83,6 @@ module.exports = {
     },
     // { test: /\.scss$/, loader: 'style!css!sass?sourceMap'},
     { test: /\.scss$/, loader: ["style", "css?sourceMap", "sass?sourceMap"]},
-    // {
-    //     test: /\.(gif|jpg|png|woff|svg|eot|ttf)\??.*$/, loader: 'url-loader?limit=50000&name=[path][name].[ext]'
-    // },
     ]
   },
   eslint: {
