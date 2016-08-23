@@ -2,7 +2,6 @@
   <div id="wrapper">
     <!-- 头部导航栏 -->
     <header-bar></header-bar>
-
     <router-view
       class="view"
       keep-alive
