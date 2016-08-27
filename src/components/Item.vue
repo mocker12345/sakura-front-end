@@ -1,5 +1,5 @@
 <template lang="html">
-    <li class="col l4 s6">
+    <li class="col l4 s6 f-l">
         <div class="card">
             <div class="card-image waves-effect waves-block waves-light">
                 <img class="activator" v-bind:src="img">

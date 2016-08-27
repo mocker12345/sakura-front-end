@@ -1,5 +1,5 @@
 <template lang="html">
-    <div class="center">
+    <div class="center row">
         <ul class="pagination">
             <li class="disabled"><a href="#!"><i class="material-icons">chevron_left</i></a></li>
             <li class="active"><a href="#!">1</a></li>
