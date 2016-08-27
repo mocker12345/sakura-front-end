@@ -7,6 +7,7 @@ import App from './App.vue'
 import IndexView from './components/IndexView.vue'
 import ZdmView from './components/ZdmView.vue'
 import CategoryView from './components/CategoryView.vue'
+import ArticleView from './components/ArticleView.vue'
 
 // install router
 Vue.use(Router)
@@ -38,6 +39,9 @@ router.map({
     },
     '/category': {
         component: CategoryView
+    },
+    '/article':{
+        component: ArticleView
     }
 })
 

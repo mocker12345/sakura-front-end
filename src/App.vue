@@ -27,7 +27,7 @@
 <style lang="scss">
     @import "./assets/scss/variables.scss";
     html {
-        font-family: "华文细黑";
+        // font-family: "华文细黑";
     }
     body {
         background-color: $bgColor;
