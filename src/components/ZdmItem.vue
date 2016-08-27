@@ -49,6 +49,9 @@ export default {
         overflow: hidden;
         background-color: #fff;
         margin-bottom: 30px;
+        &:hover {
+            box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.16), 0 2px 10px 0 rgba(0, 0, 0, 0.12) !important;
+        }
         .img-container {
             position: relative;
             overflow: hidden;
@@ -108,15 +111,16 @@ export default {
                 width: 80px;
                 height: 30px;
                 line-height: 30px;
-                font-size: 14px;
+                font-size: 16px;
                 color: #fff;
                 background: #ea7780;
                 text-align: center;
+                margin: 0 !important;
             }
         }
         .buylink-site {
             color: #999;
-            font-size: 14px;
+            font-size: 16px;
             margin-right: 10px;
             line-height: 1;
             padding-top: 10px;

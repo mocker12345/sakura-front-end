@@ -1,53 +1,10 @@
 <template lang="html">
     <ul class="menu-list">
-        <li class="menu-list-item">
-            <a href="#" class="item-title">父级分类01</a>
-            <ul class="submenu-list">
-                <li class="submenu-list-item">
-                    <a href="#">子分类01</a>
-                </li>
-                <li class="submenu-list-item">
-                    <a href="#">子分类02</a>
-                </li>
-                <li class="submenu-list-item">
-                    <a href="#">子分类03</a>
-                </li>
-
-            </ul>
+        <li class="menu-list-item" v-on:click="active" v-for="item in [1,2,3,4]">
+            <a href="#" class="item-title">父级分类0{{ $index }}</a>
             <i class="material-icons icon-arrow">keyboard_arrow_right</i>
         </li>
-        <li class="menu-list-item">
-            <a href="#" class="item-title">父级分类01</a>
-            <ul class="submenu-list" >
-                <li class="submenu-list-item">
-                    <a href="#">子分类01</a>
-                </li>
-                <li class="submenu-list-item">
-                    <a href="#">子分类02</a>
-                </li>
-                <li class="submenu-list-item">
-                    <a href="#">子分类03</a>
-                </li>
 
-            </ul>
-            <i class="material-icons icon-arrow">keyboard_arrow_right</i>
-        </li>
-        <li class="menu-list-item">
-            <a href="#" class="item-title">父级分类01</a>
-            <ul class="submenu-list" >
-                <li class="submenu-list-item">
-                    <a href="#">子分类01</a>
-                </li>
-                <li class="submenu-list-item">
-                    <a href="#">子分类02</a>
-                </li>
-                <li class="submenu-list-item">
-                    <a href="#">子分类03</a>
-                </li>
-
-            </ul>
-            <i class="material-icons icon-arrow">keyboard_arrow_right</i>
-        </li>
     </ul>
 </template>
 
@@ -61,7 +18,12 @@ export default {
     computed: {},
     ready() {},
     attached() {},
-    methods: {},
+    methods: {
+        active: function(event) {
+            $('.menu-list-item').removeClass('active')
+            $(event.target).addClass('active')
+        }
+    },
     components: {}
 };
 </script>
@@ -77,53 +39,28 @@ export default {
             cursor: pointer;
             position: relative;
             padding: 2px 4px;
-            &:hover  {
-                background-color: $hoverBgColor;
-                .item-title, .icon-arrow {
-                    color: #fff;
-                }
-                .submenu-list {
-                    display: block;
-                }
-
+        }
+        li.active {
+            background-color: $hoverBgColor;
+            .item-title, .icon-arrow {
+                color: #fff;
             }
-            // position: relative;
+            .submenu-list {
+                display: block;
+            }
         }
         .item-title {
             color: $fontColor;
-            font-size: 16px;
+            font-size: 18px;
             padding-left: 10px;
-            height: 40px;
-            line-height: 40px;
-            // display: block;
-
-            font-weight: 600;
-        }
-        .submenu-list, .submenu-list-item {
-            width: 210px;
-        }
-        .submenu-list-item {
-            padding: 2px 4px;
-            &:hover {
-                background-color: $hoverBgColor;
-                a {
-                    color:#fff;
-                }
-            }
-        }
-        .submenu-list {
-            font-size: 14px;
-            position: absolute;
-            top: 0;
-            left: 100%;
-            display: none;
-            background-color: $bgColor;
+            height: 35px;
+            line-height: 35px;
+            font-weight: 500;
         }
         .menu-list-item .submenu-list {
             // display: none;
         }
         .menu-list-item {
-            // position: relative;
             top: 0;
             z-index: 2;
 
@@ -137,16 +74,6 @@ export default {
             display: inline-block;
             transition: all .4s ease;
 
-        }
-        .submenu-list-item {
-
-            a {
-                height: 40px;
-                line-height: 40px;
-                color:#999;
-                font-weight: 600;
-                padding-left: 15%;
-            }
         }
 
     }

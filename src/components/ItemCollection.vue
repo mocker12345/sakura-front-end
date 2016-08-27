@@ -1,10 +1,12 @@
 <template>
 
   <div class="item-collection container">
-    <ul class="item row">
-        <item></item>
-        <item></item>
-        <item></item>
+    <ul class="items row ">
+        <item class="item" img="http://avatar.csdn.net/7/2/D/1_avenccssddnn.jpg"></item>
+        <item class="item" img="http://a.diaox2.com/cms/sites/default/files/20160818/goodthing/596_1.jpg"></item>
+        <item class="item" img="http://avatar.csdn.net/7/2/D/1_avenccssddnn.jpg"></item>
+        <item class="item" img="http://a.diaox2.com/cms/sites/default/files/20160818/goodthing/596_1.jpg"></item>
+        <item class="item" img="http://avatar.csdn.net/7/2/D/1_avenccssddnn.jpg"></item>
     </ul>
   </div>
 </template>
@@ -18,6 +20,31 @@ export default {
 
   components: {
     Item
+  },
+
+  ready () {
+
+
+  },
+
+  created () {
+
+  },
+
+  attached () {
+    //   debugger;
+    var count = 5;
+  this.$on('ITEM_ATTACHED', () => {
+      debugger;
+      if (!(--count)) {
+          $('.items').masonry({
+              // options
+              itemSelector: '.item',
+          });
+          return true
+      }
+  })
+
   },
 
   data () {

@@ -2,9 +2,9 @@
     <div class="box grey lighten-5">
       <div class="swiper-container container">
         <div class="swiper-wrapper">
-            <div class="swiper-slide">Slide 1</div>
-            <div class="swiper-slide">Slide 2</div>
-            <div class="swiper-slide">Slide 3</div>
+            <div class="swiper-slide slide-1"></div>
+            <div class="swiper-slide slide-2"></div>
+            <div class="swiper-slide slide-3"></div>
         </div>
         <div class="swiper-pagination"></div>
 
@@ -68,6 +68,21 @@ export default {
   .swiper-container {
         width: 80%;
         height: 400px;
+
+        .slide-1 {
+            background: #000;
+        }
+        .slide-2 {
+            background: #0f0;
+        }
+        .slide-3 {
+            background: #00f;
+        }
+        .swiper-slide {
+            img {
+
+            }
+        }
 
     }
   div.box {

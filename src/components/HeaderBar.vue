@@ -8,7 +8,8 @@
                 <li><a href="#/zdm">值得买</a></li>
                 <li><a href="#/category">分类</a></li>
             </ul>
-            <ul class="side-nav" id="mobile-demo">
+            <ul class="side-nav" id="mobile-demo" v-on:click="hideSideNav">
+                <li><a href="#/index" class="side-logo">Logo</a></li>
                 <li><a href="#/index">首页</a></li>
                 <li><a href="#/zdm">值得买</a></li>
                 <li><a href="#/category">分类</a></li>
@@ -32,6 +33,9 @@ export default {
     },
     attached() {},
     methods: {
+        hideSideNav: function() {
+            $('.button-collapse').sideNav('hide');
+        }
     },
     created() {
 
@@ -49,6 +53,29 @@ export default {
         padding: 25px;
         .nav-wrapper {
             overflow: hidden;
+        }
+        .side-logo {
+            text-align: center;
+            height: 80px;
+            background: #424242;
+            line-height: 80px;
+            // color: #fff;
+            background-color: $bgColor;
+            font-size: 30px;
+            border-bottom: 1px solid #ddd;
+            &:hover {
+                background: $bgColor;
+            }
+        }
+        .side-nav {
+            background-color: $bgColor;
+            a {
+                text-align: center;
+                font-size: 20px;
+                // height: 60px;
+                // line-height: 60px;
+
+            }
         }
         // line-height: 128px !important;
     }

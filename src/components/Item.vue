@@ -2,7 +2,7 @@
     <li class="col l4 s6">
         <div class="card">
             <div class="card-image waves-effect waves-block waves-light">
-                <img class="activator" src="../assets/office.jpg">
+                <img class="activator" v-bind:src="img">
             </div>
             <div class="card-content">
                 <span class="card-title activator grey-text text-darken-4">
@@ -32,9 +32,16 @@ export default {
             // image: './src/assets/images/office.jpg'
         }
     },
+    props: [
+        'img'
+    ],
     computed: {},
-    ready() {},
-    attached() {},
+    ready() {
+
+    },
+    attached() {
+this.$dispatch('ITEM_ATTACHED');
+    },
     methods: {},
     components: {}
 };
