@@ -68,8 +68,7 @@ export default {
         pageChange: function(page) {
             if (this.cur != page) {
                 this.cur = page
-                this.isPreDisabled = this.cur==1 ? true : false
-                this.isNextDisabled = this.cur==this.totalPage ? true : false
+
             }
         },
         pre: function() {
@@ -85,6 +84,12 @@ export default {
             } else {
                 this.cur = this.totalPage
             }
+        }
+    },
+    watch: {
+        'cur': function(val, oldVal) {
+            this.isPreDisabled = val==1 ? true : false
+            this.isNextDisabled = val==this.totalPage ? true : false
         }
     },
     components: {}
