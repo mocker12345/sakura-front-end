@@ -55,4 +55,3 @@ this.$dispatch('ITEM_ATTACHED');
         }
     }
 </style>
->>>>>>> 26be839c9cfc883787bbc36cc463fcaedde5ef1c

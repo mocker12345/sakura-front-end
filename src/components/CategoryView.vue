@@ -27,7 +27,9 @@ export default {
         };
     },
     computed: {},
-    ready() {},
+    ready() {
+      console.log(api);
+    },
     attached() {},
     methods: {},
     components: {
