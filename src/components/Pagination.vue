@@ -7,7 +7,7 @@
                     <i class="material-icons">chevron_left</i>
                 </a>
             </li>
-            <li v-bind:class="{'active': cur==index, 'waves-effect': cur!=index}"
+            <li v-bind:class="{'active': offset==index, 'waves-effect': offset!=index}"
                 v-for="index in pagenums"
                 v-on:click="pageChange(index)">
                 <a >{{index}}</a>
@@ -29,14 +29,19 @@ export default {
     name: 'pagination',
     data() {
         return {
-            cur: 1,
-            totalPage: 38,
+            // offset: 1,
+            // totalPage: 38,
             visiblePage: 10,
-            msg: '',
+            // msg: '',
             isNextDisabled: false,
             isPreDisabled: true
         };
     },
+    props: [
+        'limit',
+        'offset',
+        'totalPage'
+    ],
     computed: {
         pagenums: function() {
             var lowPage = 1,
@@ -44,10 +49,10 @@ export default {
                 pageArr =  [];
             if (this.totalPage > this.visiblePage) {
                 var subVisiblePage = Math.ceil(this.visiblePage/2)
-                if (this.cur > subVisiblePage && this.cur < (this.totalPage - subVisiblePage + 1)) {
-                    lowPage = this.cur - subVisiblePage
-                    highPage = this.cur + subVisiblePage - 1
-                } else if (this.cur <= subVisiblePage) {
+                if (this.offset > subVisiblePage && this.offset < (this.totalPage - subVisiblePage + 1)) {
+                    lowPage = this.offset - subVisiblePage
+                    highPage = this.offset + subVisiblePage - 1
+                } else if (this.offset <= subVisiblePage) {
                     lowPage = 1
                     highPage = this.visiblePage
                 } else {
@@ -62,32 +67,34 @@ export default {
             return pageArr
         }
     },
-    ready() {},
+    ready() {
+
+    },
     attached() {},
     methods: {
         pageChange: function(page) {
-            if (this.cur != page) {
-                this.cur = page
+            if (this.offset != page) {
+                this.offset = page
 
             }
         },
         pre: function() {
-            if (this.cur > 1) {
-                this.cur--
+            if (this.offset > 1) {
+                this.offset--
             } else {
-                this.cur = 1
+                this.offset = 1
             }
         },
         next: function() {
-            if (this.cur < this.totalPage) {
-                this.cur++
+            if (this.offset < this.totalPage) {
+                this.offset++
             } else {
-                this.cur = this.totalPage
+                this.offset = this.totalPage
             }
         }
     },
     watch: {
-        'cur': function(val, oldVal) {
+        'offset': function(val, oldVal) {
             this.isPreDisabled = val==1 ? true : false
             this.isNextDisabled = val==this.totalPage ? true : false
         }

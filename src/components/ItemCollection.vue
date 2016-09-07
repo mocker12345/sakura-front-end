@@ -5,15 +5,8 @@
          <div class="indeterminate"></div>
     </div>
     <ul class="items row">
-        <item class="item" img="http://avatar.csdn.net/7/2/D/1_avenccssddnn.jpg"></item>
-        <item class="item" img="http://a.diaox2.com/cms/sites/default/files/20160818/goodthing/596_1.jpg"></item>
-        <item class="item" img="http://avatar.csdn.net/7/2/D/1_avenccssddnn.jpg"></item>
-        <item class="item" img="http://a.diaox2.com/cms/sites/default/files/20160818/goodthing/596_1.jpg"></item>
-        <item class="item" img="http://avatar.csdn.net/7/2/D/1_avenccssddnn.jpg"></item>
-        <item class="item" img="http://avatar.csdn.net/7/2/D/1_avenccssddnn.jpg"></item>
-        <item class="item" img="http://avatar.csdn.net/7/2/D/1_avenccssddnn.jpg"></item>
-        <item class="item" img="http://avatar.csdn.net/7/2/D/1_avenccssddnn.jpg"></item>
-        <item class="item" img="http://avatar.csdn.net/7/2/D/1_avenccssddnn.jpg"></item>
+        <item class="item" v-for="article in articles" :article="article" img="http://avatar.csdn.net/7/2/D/1_avenccssddnn.jpg"></item>
+        <!-- <item class="item" img="http://avatar.csdn.net/7/2/D/1_avenccssddnn.jpg"></item> -->
     </ul>
   </div>
 </template>
@@ -29,6 +22,10 @@ export default {
     Item
   },
 
+  props: [
+      'articles'
+  ],
+
   ready () {
 
 
@@ -36,9 +33,7 @@ export default {
   },
 
   created () {
-    //   setTimeout(() => {
-        //   $('.items').masonry();
-    //   }, 2000)
+
   },
 
   attached () {
@@ -56,7 +51,8 @@ export default {
 
   data () {
       return {
-          isLoading: true
+          isLoading: true,
+          items: []
       }
   },
 

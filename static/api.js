@@ -1,6 +1,6 @@
 var api = new webRest([
-  'GET /book/:id',
-
+    'GET /book/:id',
+    'GET /article'
   ],{
   host:'https://api.douban.com/v2',
   promise:Promise,
@@ -20,26 +20,27 @@ var api = new webRest([
       }
       delete request.data;
     }
-    function ajax(method, url, data) {
-      var request = new XMLHttpRequest();
-
-      return new Promise(function (resolve, reject) {
-        request.onreadystatechange = function () {
-          if (request.readyState === 4) {
-            if (request.status === 200) {
-              resolve(JSON.parse(request.responseText));
-            } else {
-              reject(JSON.parse(request.responseText));
-            }
-          }
-        };
-        request.open(method, url);
-        request.send(data);
-
-      });
-    }
-
-    return ajax(request.method,request.path,request.data);
+    // function ajax(method, url, data) {
+    //   var request = new XMLHttpRequest();
+    //
+    //   return new Promise(function (resolve, reject) {
+    //     request.onreadystatechange = function () {
+    //       if (request.readyState === 4) {
+    //         if (request.status === 200) {
+    //           resolve(JSON.parse(request.responseText));
+    //         } else {
+    //           reject(JSON.parse(request.responseText));
+    //         }
+    //       }
+    //     };
+    //     request.open(method, url);
+    //     request.send(data);
+    //
+    //   });
+    // }
+    //
+    // return ajax(request.method,request.path,request.data);
+    console.log(request)
 
   }
 });

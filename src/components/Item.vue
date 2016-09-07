@@ -6,7 +6,7 @@
             </div>
             <div class="card-content">
                 <span class="card-title activator grey-text text-darken-4">
-                    Card Title
+                    {{article.title}}
                     <i class="material-icons right">more_vert</i>
                 </span>
                 <p>
@@ -33,6 +33,7 @@ export default {
         }
     },
     props: [
+        'article',
         'img'
     ],
     computed: {},
