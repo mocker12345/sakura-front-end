@@ -25,18 +25,10 @@
             var data = this.getArticles(this.limit, this.offset);
             this.articles = data.data
             this.totalPage = data.total_page
-
-            // getArticles(this.limit, this.offset).then(function(data){
-            //     this.articles = data.data
-            //     this.totalPage = data.total_page
-            // }, function() {
-            //     console.log('加载失败')
-            // })
         },
 
         watch: {
             'offset': function(newOffset, oldOffset) {
-                alert(newOffset)
                 var data = this.getArticles(this.limit, newOffset)
                 this.articles = data.data
                 this.totalPage = data.total_page
@@ -54,7 +46,7 @@
                       category: 0,
                       children: [],
                       content: "测试啊~~~~~~~~~~~~~~~~~~~~~~~~~~",
-                      cover_url: "http://nd.com.cn!!!",
+                      cover_url: "http://avatar.csdn.net/7/2/D/1_avenccssddnn.jpg",
                       create_time: "2016-09-03T15:38:51+00:00",
                       good: 0,
                       id: 1,
@@ -66,7 +58,7 @@
                       category: 0,
                       children: [],
                       content: "测试啊~~~~~~~~~~~~~~~~~~~~~~~~~~",
-                      cover_url: "http://nd.com.cn",
+                      cover_url: "http://avatar.csdn.net/7/2/D/1_avenccssddnn.jpg",
                       create_time: "2016-09-03T15:39:36+00:00",
                       good: 0,
                       id: 3,
@@ -87,7 +79,7 @@
         data () {
             return {
                 limit: 12,
-                offset: 13,
+                offset: 1,
                 totalPage: 0,
                 articles: []
             }

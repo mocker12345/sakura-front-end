@@ -10,7 +10,7 @@
                     <a href="javascript:void(0);">父级分类01</a>
                 </div>
                 <ul class="article-list clearfix">
-                    <item v-for="i in [0,1,2,3,4,5]"></item>
+                    <item v-for=""></item>
                 </ul>
             </div>
         </div>
@@ -23,15 +23,42 @@ import Item from './Item.vue'
 export default {
     data() {
         return {
-
-        };
+            data: {}
+        }
     },
     computed: {},
     ready() {
-      console.log(api);
+    //   console.log(api);
     },
     attached() {},
-    methods: {},
+    methods: {
+        getCategories: () => {
+            return {
+              "data": [
+                {
+                  "id": 4,
+                  "name": "nd"
+                },
+                {
+                  "id": 5,
+                  "name": "nd1"
+                },
+                {
+                  "id": 6,
+                  "name": "nd2"
+                },
+                {
+                  "id": 1,
+                  "name": "rancongjie"
+                },
+                {
+                  "id": 2,
+                  "name": "zhongshan"
+                }
+              ]
+          }
+        }
+    },
     components: {
         MenuList,
         Item

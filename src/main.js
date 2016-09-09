@@ -1,6 +1,6 @@
 import Vue from 'vue'
 import Router from 'vue-router'
-import VueResource from 'vue-resource'
+// import VueResource from 'vue-resource'
 
 // import { domain, fromNow } from './filters'
 import App from './App.vue'
@@ -12,7 +12,7 @@ import ArticleView from './components/ArticleView.vue'
 // install router
 Vue.use(Router)
 
-Vue.use(VueResource)
+// Vue.use(VueResource)
 
 // register filters globally
 // Vue.filter('fromNow', fromNow)
@@ -31,7 +31,7 @@ router.map({
   // '/item/:id': {
   //   component: ZdmView
   // },
-    '/index/:page': {
+    '/index': {
         component: IndexView
     },
     '/zdm': {
@@ -40,7 +40,7 @@ router.map({
     '/category': {
         component: CategoryView
     },
-    '/article':{
+    '/article/:id':{
         component: ArticleView
     }
 })
@@ -50,7 +50,7 @@ router.beforeEach(function () {
 })
 
 router.redirect({
-  '*': '/index/1'
+  '*': '/index'
 })
 
 router.start(App, '#app')

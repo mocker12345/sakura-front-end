@@ -5,7 +5,7 @@
          <div class="indeterminate"></div>
     </div>
     <ul class="items row">
-        <item class="item" v-for="article in articles" :article="article" img="http://avatar.csdn.net/7/2/D/1_avenccssddnn.jpg"></item>
+        <item class="item" v-for="article in articles" :article="article"></item>
         <!-- <item class="item" img="http://avatar.csdn.net/7/2/D/1_avenccssddnn.jpg"></item> -->
     </ul>
   </div>
@@ -27,8 +27,6 @@ export default {
   ],
 
   ready () {
-
-
 
   },
 

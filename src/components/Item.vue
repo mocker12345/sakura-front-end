@@ -2,7 +2,7 @@
     <li class="col l4 s6 f-l">
         <div class="card">
             <div class="card-image waves-effect waves-block waves-light">
-                <img class="activator" v-bind:src="img">
+                <img class="activator" :src="article.cover_url">
             </div>
             <div class="card-content">
                 <span class="card-title activator grey-text text-darken-4">
@@ -10,7 +10,7 @@
                     <i class="material-icons right">more_vert</i>
                 </span>
                 <p>
-                    <a href="#">This is a link</a>
+                    <a :href="'#/article/'+article.id" v-text="article.summary">This is a link</a>
                 </p>
             </div>
             <div class="card-reveal">
@@ -18,7 +18,7 @@
                     Card Title
                     <i class="material-icons right">close</i>
                 </span>
-                <p>Here is some more information about this product that is only revealed once clicked on.</p>
+                <p v-text="article.content">Here is some more information about this product that is only revealed once clicked on.</p>
             </div>
         </div>
     </li>

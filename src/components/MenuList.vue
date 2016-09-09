@@ -1,7 +1,7 @@
 <template lang="html">
     <ul class="menu-list">
-        <li class="menu-list-item" v-on:click="active" v-for="item in [1,2,3,4]">
-            <a href="#" class="item-title">父级分类0{{ $index }}</a>
+        <li class="menu-list-item" v-for="item in [1,2,3,4]">
+            <a href="javascript:void(0);" class="item-title">父级分类0{{ $index }}</a>
             <i class="material-icons icon-arrow">keyboard_arrow_right</i>
         </li>
 
@@ -17,12 +17,14 @@ export default {
     },
     computed: {},
     ready() {},
-    attached() {},
-    methods: {
-        active: function(event) {
+    attached() {
+        $('.menu-list-item').on('click', function() {
             $('.menu-list-item').removeClass('active')
-            $(event.target).addClass('active')
-        }
+            $(this).addClass('active')
+        })
+    },
+    methods: {
+        
     },
     components: {}
 };

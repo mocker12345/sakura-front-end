@@ -116,7 +116,7 @@
      * @returns {Function}
      */
      Tree.prototype.buildMethod = function (method) {
-        debugger;
+        // debugger;
         var node = this;
         return function (data) {
             var what = node.getPath();
