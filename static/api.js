@@ -1,8 +1,8 @@
 var api = new webRest([
-    'GET /book/:id',
-    'GET /article'
+    'GET /article',
+    'GET /article/:id'
   ],{
-  host:'https://api.douban.com/v2',
+  host:'http://180.76.132.102:19991',
   promise:Promise,
   http:function(request){
     if (request.method === 'GET' && request.data) {
@@ -13,33 +13,34 @@ var api = new webRest([
         if (value === void 0) continue;
         queryString.push(encodeURIComponent(i) + '=' + encodeURIComponent(value));
       }
+      debugger;
       if (queryString.length) {
-        if (!~request.url.indexOf('?')) request.url += '?';
-        if (!/[?&]$/.test(request.url)) request.url += '&';
-        request.url += queryString.join('&');
+        if (!~request.path.indexOf('?')) request.path += '?';
+        if (!/[?&]$/.test(request.path)) request.path += '&';
+        request.path += queryString.join('&');
       }
       delete request.data;
     }
-    // function ajax(method, url, data) {
-    //   var request = new XMLHttpRequest();
-    //
-    //   return new Promise(function (resolve, reject) {
-    //     request.onreadystatechange = function () {
-    //       if (request.readyState === 4) {
-    //         if (request.status === 200) {
-    //           resolve(JSON.parse(request.responseText));
-    //         } else {
-    //           reject(JSON.parse(request.responseText));
-    //         }
-    //       }
-    //     };
-    //     request.open(method, url);
-    //     request.send(data);
-    //
-    //   });
-    // }
-    //
-    // return ajax(request.method,request.path,request.data);
+    function ajax(method, url, data) {
+      var request = new XMLHttpRequest();
+
+      return new Promise(function (resolve, reject) {
+        request.onreadystatechange = function () {
+          if (request.readyState === 4) {
+            if (request.status === 200) {
+              resolve(JSON.parse(request.responseText));
+            } else {
+              reject(JSON.parse(request.responseText));
+            }
+          }
+        };
+        request.open(method, url);
+        request.send(data);
+
+      });
+    }
+
+    return ajax(request.method,request.path,request.data);
     console.log(request)
 
   }

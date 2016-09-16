@@ -67,6 +67,7 @@ export default {
 <style lang="scss">
     .item-collection {
         // padding: 20px;
+        overflow: hidden;
     }
     .progress {
         margin-top: 100px;
