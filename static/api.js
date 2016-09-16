@@ -1,6 +1,8 @@
 var api = new webRest([
     'GET /article',
-    'GET /article/:id'
+    'GET /article/:id',
+    'GET /category',
+    'GET /commodity'
   ],{
   host:'http://180.76.132.102:19991',
   promise:Promise,

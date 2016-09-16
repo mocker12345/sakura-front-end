@@ -38,7 +38,7 @@ export default {
   attached() {},
   methods: {
       getArticleData: (articleId) => {
-          return api.article.get(articleId)
+          return api.article(articleId).get()
       }
   },
 

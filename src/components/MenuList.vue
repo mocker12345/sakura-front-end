@@ -1,7 +1,9 @@
 <template lang="html">
     <ul class="menu-list">
-        <li class="menu-list-item" v-for="item in [1,2,3,4]">
-            <a href="javascript:void(0);" class="item-title">父级分类0{{ $index }}</a>
+        <li class="menu-list-item" v-for="item in categories"
+            @click="getArticlesByCategory(item.id, $index, item.name)"
+            :class="{'active': $index==0}">
+            <a href="javascript:void(0);" class="item-title" >{{ item.name }}</a>
             <i class="material-icons icon-arrow">keyboard_arrow_right</i>
         </li>
 
@@ -18,13 +20,17 @@ export default {
     computed: {},
     ready() {},
     attached() {
-        $('.menu-list-item').on('click', function() {
-            $('.menu-list-item').removeClass('active')
-            $(this).addClass('active')
-        })
+
     },
+    props: [
+        'categories'
+    ],
     methods: {
-        
+        getArticlesByCategory: function(categoryId, index, categoryName) {
+            $('.menu-list-item').removeClass('active')
+            $('.menu-list-item').eq(index).addClass('active')
+            this.$emit('category-changed', categoryId, categoryName)
+        }
     },
     components: {}
 };

@@ -2,25 +2,19 @@
     <li class="result-item clearfix">
         <a href="#">
             <div class="img-container f-l loading">
-                <img src="../assets/images/office.jpg" alt="xxx" />
+                <img :src="item.cover_url" alt="" />
             </div>
             <div class="result-detail f-l">
-                <p class="result-title">
-                    这里是标题
-                </p>
-                <p class="result-price">这里是价格</p>
-                <p class="result-content is-truncated">
-                    xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
-                </p>
+                <p class="result-title" v-text="item.title"></p>
+                <p class="result-price">￥<span v-text="item.price"></span></p>
+                <p class="result-content is-truncated" v-text="item.summary"></p>
                 <ul class="result-footer clearfix">
                     <li class="date f-l">14:14</li>
                     <li class="source f-l">diaodiao</li>
                     <li class="view-result f-r">
-                        <p>查看详情</p>
+                        <p><a href="{{ item.buy_url }}">查看详情</a></p>
                     </li>
-                    <li class="buylink-site f-r">
-                        京东
-                    </li>
+                    <li class="buylink-site f-r" v-text="item.buy_site"></li>
                 </ul>
             </div>
         </a>
@@ -32,12 +26,18 @@ export default {
     name: 'ZdmItem',
     data() {
         return {
+
         };
     },
     computed: {},
     ready() {},
     attached() {},
-    methods: {},
+    props: [
+        'item'
+    ],
+    methods: {
+
+    },
     components: {}
 };
 </script>
@@ -116,6 +116,9 @@ export default {
                 background: #ea7780;
                 text-align: center;
                 margin: 0 !important;
+            }
+            a {
+                color: #fff;
             }
         }
         .buylink-site {

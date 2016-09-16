@@ -1,16 +1,16 @@
 <template lang="html">
     <div class="container category-container">
         <div class="row">
-            <menu-list class="col l3 hide-on-med-and-down menu"></menu-list>
+            <menu-list class="col l3 hide-on-med-and-down menu" :categories="categories" v-on:category-changed="switchCategory"></menu-list>
             <!-- <article-list class="article-list col l9"></article-list> -->
             <div class="content col l9 s12">
                 <div class="breadcrumb hide-on-med-and-down">
                     <a href="javascript:void(0);">全部文章</a>
                             <span>&gt;</span>
-                    <a href="javascript:void(0);">父级分类01</a>
+                    <a href="javascript:void(0);">{{ categoryName }}</a>
                 </div>
                 <ul class="article-list clearfix">
-                    <item v-for=""></item>
+                    <!-- <item v-for=""></item> -->
                 </ul>
             </div>
         </div>
@@ -23,18 +23,18 @@ import Item from './Item.vue'
 export default {
     data() {
         return {
-            data: {}
+            categories: [],
+            categoryId: 0,
+            categoryName: ''
         }
     },
     computed: {},
-    ready() {
-    //   console.log(api);
-    },
-    attached() {},
-    methods: {
-        getCategories: () => {
-            return {
-              "data": [
+    created() {
+        var that = this
+        this.getCategories().then((data) => {
+            // this.categories = data.data
+            // this.categoryId = data.data[0].id
+            this.categories = [
                 {
                   "id": 4,
                   "name": "nd"
@@ -55,8 +55,23 @@ export default {
                   "id": 2,
                   "name": "zhongshan"
                 }
-              ]
-          }
+            ];
+            this.categoryId = this.categories[0].id
+            this.categoryName = this.categories[0].name
+
+        })
+    },
+    ready() {
+    //   console.log(api);
+    },
+    attached() {},
+    methods: {
+        getCategories: () => {
+            return api.category.get()
+        },
+        switchCategory: function(categoryId, categoryName) {
+            this.categoryId = categoryId
+            this.categoryName = categoryName
         }
     },
     components: {
