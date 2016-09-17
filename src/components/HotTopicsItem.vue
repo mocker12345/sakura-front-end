@@ -26,5 +26,21 @@ export default {
 </script>
 
 <style lang="scss">
-
+  .card {
+    height: 130px;
+    .card-image {
+      height: 100%;
+    }
+    img {
+      height: 100%;
+    }
+  }
+  .card-title {
+    word-break: break-all;
+    word-wrap: break-word;
+    margin: 0;
+    padding: 0 5px !important;
+    font-size: 15px !important;
+    background: rgba(0,0,0,.4);
+  }
 </style>

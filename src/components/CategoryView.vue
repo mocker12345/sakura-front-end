@@ -1,7 +1,10 @@
 <template lang="html">
     <div class="container category-container">
         <div class="row">
-            <menu-list class="col l3 hide-on-med-and-down menu" :categories="categories" v-on:category-changed="switchCategory"></menu-list>
+            <menu-list
+              class="col l3 hide-on-med-and-down menu"
+              :categories="categories"
+              v-on:category-changed="switchCategory"></menu-list>
             <!-- <article-list class="article-list col l9"></article-list> -->
             <div class="content col l9 s12">
                 <div class="breadcrumb hide-on-med-and-down">
@@ -10,7 +13,10 @@
                     <a href="javascript:void(0);">{{ categoryName }}</a>
                 </div>
                 <ul class="article-list clearfix">
-                    <!-- <item v-for=""></item> -->
+                    <!-- <div class="progress" >
+                      <div class="indeterminate"></div>
+                    </div> -->
+                    <item v-for="article in articles" :article="article"></item>
                 </ul>
             </div>
         </div>
@@ -25,44 +31,30 @@ export default {
         return {
             categories: [],
             categoryId: 0,
-            categoryName: ''
+            categoryName: '',
+            // 以下为分页参数
+            limit: 12,
+            offset: 1,
+            totalPage: 0,
+            articles: []
         }
     },
     computed: {},
     created() {
         var that = this
         this.getCategories().then((data) => {
-            // this.categories = data.data
-            // this.categoryId = data.data[0].id
-            this.categories = [
-                {
-                  "id": 4,
-                  "name": "nd"
-                },
-                {
-                  "id": 5,
-                  "name": "nd1"
-                },
-                {
-                  "id": 6,
-                  "name": "nd2"
-                },
-                {
-                  "id": 1,
-                  "name": "rancongjie"
-                },
-                {
-                  "id": 2,
-                  "name": "zhongshan"
-                }
-            ];
-            this.categoryId = this.categories[0].id
-            this.categoryName = this.categories[0].name
-
+            that.categories = data.data
+            that.categoryId = data.data[0].id
+            that.categoryName = this.categories[0].name
+            that.getArticlesByCategoryId(that.categoryId, that.limit, that.offset).then((data) => {
+              debugger;
+              that.totalPage = data.total_page
+              that.articles = data.data
+            })
         })
     },
     ready() {
-    //   console.log(api);
+      
     },
     attached() {},
     methods: {
@@ -72,6 +64,19 @@ export default {
         switchCategory: function(categoryId, categoryName) {
             this.categoryId = categoryId
             this.categoryName = categoryName
+            // 切换category后，将this.offset置为 1
+            this.offset = 1
+            var that = this
+            this.getArticlesByCategoryId(this.categoryId, this.limit, this.offset).then(function(data) {
+              that.totalPage = data.total_page
+              that.articles = data.data
+            })
+        },
+        getArticlesByCategoryId: function(id, limit, offset) {
+          return api.category(id).articles.get({
+            limit: limit,
+            offset: offset
+          })
         }
     },
     components: {

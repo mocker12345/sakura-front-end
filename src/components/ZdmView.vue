@@ -7,8 +7,10 @@
         </div>
 
         <div class="hot-topics-area col l4 hide-on-med-and-down">
+            <h2 class="hot-topics-title"><i class="material-icons">trending_up</i>大家都在看</h2>
             <ul class="row">
-                <hot-topics-item></hot-topics-item>
+              <hot-topics-item></hot-topics-item>
+              <hot-topics-item></hot-topics-item>
             </ul>
         </div>
     </div>
@@ -68,7 +70,13 @@ export default {
         })
     },
     computed: {},
-    ready() {},
+    ready() {
+      $(document).scroll(function() {
+        if ($(document).scrollTop() >= $(document).height()-$(window).height()) {
+          // to load more
+        }
+      })
+    },
     attached() {},
     methods: {
         getCommodities: (limit, offset) => {
@@ -94,5 +102,19 @@ export default {
         background: #eee;
         padding-left:20px !important;
         height:300px;
+    }
+    .zdm-item {
+      margin-top:0;
+    }
+    .hot-topics-title {
+      font-size: 16px;
+      color: #000;
+      margin-bottom: 0!important;
+      i {
+        vertical-align: top;
+        margin-right: 10px;
+        color: #ea7780;
+
+      }
     }
 </style>

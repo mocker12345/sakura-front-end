@@ -6,7 +6,13 @@
             <a href="javascript:void(0);" class="item-title" >{{ item.name }}</a>
             <i class="material-icons icon-arrow">keyboard_arrow_right</i>
         </li>
-
+        <!-- 其他分类，id为0 -->
+        <li class="menu-list-item"
+            @click="getArticlesByCategory(0, -1, '其他')"
+            :class="{'active': $index==0}">
+            <a href="javascript:void(0);" class="item-title" >其他</a>
+            <i class="material-icons icon-arrow">keyboard_arrow_right</i>
+        </li>
     </ul>
 </template>
 
@@ -28,7 +34,8 @@ export default {
     methods: {
         getArticlesByCategory: function(categoryId, index, categoryName) {
             $('.menu-list-item').removeClass('active')
-            $('.menu-list-item').eq(index).addClass('active')
+            index == -1 ? $('.menu-list-item:last').addClass('active') :
+                          $('.menu-list-item').eq(index).addClass('active')
             this.$emit('category-changed', categoryId, categoryName)
         }
     },
