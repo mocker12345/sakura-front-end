@@ -7,6 +7,7 @@
         <!-- 分页 -->
         <pagination :limit="limit" :offset.sync="offset" :total-page="totalPage"></pagination>
     </div>
+
 </template>
 <script>
     import Gallery from './Gallery.vue'
@@ -26,6 +27,9 @@
             this.getArticles(this.limit, this.offset).then((data) => {
                 that.articles = data.data
                 that.totalPage = data.total_page
+                for (var i=0; i<that.articles.length; i++) {
+                  that.articles[i].cover_url = "http://oce6f0hwv.bkt.clouddn.com/201609161157258214068CD4B1285B80FB5DC69786962A6EB2.jpg"
+                }
             })
         },
 

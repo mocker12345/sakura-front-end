@@ -29,7 +29,11 @@ export default {
     },
     computed: {},
     ready() {
-        $(".button-collapse").sideNav();
+        $(".button-collapse").sideNav({
+          menuWidth: 300, // Default is 240
+          edge: 'left', // Choose the horizontal origin
+          closeOnClick: true // Closes side-nav on <a> clicks, useful for Angular/Meteor
+        });
     },
     attached() {},
     methods: {
@@ -71,13 +75,15 @@ export default {
             background-color: $bgColor;
             a {
                 text-align: center;
-                font-size: 20px;
-                // height: 60px;
-                // line-height: 60px;
+                font-size: 30px;
+                height: 100px;
+                line-height: 100px;
 
+            }
+            .side-logo {
+              height: 100px;
             }
         }
         // line-height: 128px !important;
     }
 </style>
->>>>>>> 26be839c9cfc883787bbc36cc463fcaedde5ef1c

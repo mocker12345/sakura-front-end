@@ -49,7 +49,7 @@ export default {
     ready() {
       var that = this
       $(document).scroll(function() {
-        if ($(document).scrollTop() >= $(document).height()-$(window).height()) {
+        if ($(document).scrollTop() >= $(document).height()-$(window).height()-100) {
             if (that.offset < that.totalPage) {
                 that.offset++
                 that.isLoading = true

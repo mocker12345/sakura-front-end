@@ -40,9 +40,11 @@ export default {
           $('.items').masonry({
               itemSelector : '.item'
           });
-          $('.items img').css({
-              'visibility': 'visible'
-          })
+          setTimeout(() => {
+            $('.items img').css({
+                'visibility': 'visible'
+            })
+          }, 500)
           self.isLoading = false;
       })
   },
