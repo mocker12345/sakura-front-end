@@ -16,7 +16,6 @@ var api = new webRest([
         if (value === void 0) continue;
         queryString.push(encodeURIComponent(i) + '=' + encodeURIComponent(value));
       }
-      debugger;
       if (queryString.length) {
         if (!~request.path.indexOf('?')) request.path += '?';
         if (!/[?&]$/.test(request.path)) request.path += '&';

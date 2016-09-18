@@ -33,7 +33,7 @@ export default {
             categoryId: 0,
             categoryName: '',
             // 以下为分页参数
-            limit: 12,
+            limit: 4,
             offset: 1,
             totalPage: 0,
             articles: []
@@ -54,7 +54,7 @@ export default {
         })
     },
     ready() {
-      
+
     },
     attached() {},
     methods: {

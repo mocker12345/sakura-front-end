@@ -4,6 +4,12 @@
             <ul class="zdm-item">
                 <zdm-item v-for="commodity in commodities" :item="commodity"></zdm-item>
             </ul>
+            <div class="progress" v-if="isLoading">
+                <div class="indeterminate"></div>
+            </div>
+            <p class="center-align no-more-tip" v-if="noMore">
+                没有更多了~
+            </p>
         </div>
 
         <div class="hot-topics-area col l4 hide-on-med-and-down">
@@ -24,56 +30,39 @@ export default {
     name: 'ZdmView',
     data() {
         return {
-            limit: 12,
+            limit: 3,
             offset: 1,
             totalPage: 0,
-            commodities: []
+            commodities: [],
+            isLoading: false,
+            noMore: false
         }
     },
     created() {
         var that = this
         this.getCommodities(this.limit, this.offset).then((data) => {
-            data = {
-                data: [
-                    {
-                        title: '这里是标题1',
-                        cover_url: 'http://search.image.alimmdn.com/344401/d9c82a3a0acdbb5be0c6dd13444e3366d36c21160d8b6cea9713b852@188w_188h_1e%7C188x188-5rc',
-                        price: '128',
-                        summary: '这里是总结1这里是总结1这里是总结1这里是总结1这里是总结1这里是总结1这里是总结1这里是总结1这里是总结1',
-                        date: '2016-09-16 18:00:00',
-                        buy_site: '网易严选',
-                        buy_url: 'http://you.163.com/',
-                    },
-                    {
-                        title: '这里是标题1',
-                        cover_url: 'http://search.image.alimmdn.com/344401/d9c82a3a0acdbb5be0c6dd13444e3366d36c21160d8b6cea9713b852@188w_188h_1e%7C188x188-5rc',
-                        price: '128',
-                        summary: '这里是总结1这里是总结1这里是总结1这里是总结1这里是总结1这里是总结1这里是总结1这里是总结1这里是总结1',
-                        date: '2016-09-16 18:00:00',
-                        buy_site: '网易严选',
-                        buy_url: 'http://you.163.com/',
-                    },
-                    {
-                        title: '这里是标题1',
-                        cover_url: 'http://search.image.alimmdn.com/344401/d9c82a3a0acdbb5be0c6dd13444e3366d36c21160d8b6cea9713b852@188w_188h_1e%7C188x188-5rc',
-                        price: '128',
-                        summary: '这里是总结1这里是总结1这里是总结1这里是总结1这里是总结1这里是总结1这里是总结1这里是总结1这里是总结1',
-                        date: '2016-09-16 18:00:00',
-                        buy_site: '网易严选',
-                        buy_url: 'http://you.163.com/',
-                    },
-                ],
-                total_page: 14
-            }
             that.commodities = data.data
             that.totalPage = data.total_page
         })
     },
     computed: {},
     ready() {
+      var that = this
       $(document).scroll(function() {
         if ($(document).scrollTop() >= $(document).height()-$(window).height()) {
-          // to load more
+            if (that.offset < that.totalPage) {
+                that.offset++
+                that.isLoading = true
+                that.getCommodities(that.limit, that.offset).then((data) => {
+                    debugger
+                    that.commodities = that.commodities.concat(data.data)
+                    that.totalPage = data.total_page
+                    that.isLoading = false
+                })
+            } else {
+                that.noMore = true
+                that.isLoading = false
+            }
         }
       })
     },
@@ -94,6 +83,9 @@ export default {
 </script>
 
 <style lang="scss">
+    .no-more-tip {
+        font-size: 18px;
+    }
     .zdm-item-collection {
         margin-top: 15px;
     }
