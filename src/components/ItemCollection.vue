@@ -44,7 +44,7 @@ export default {
             $('.items img').css({
                 'visibility': 'visible'
             })
-          }, 500)
+        }, 1000)
           self.isLoading = false;
       })
   },

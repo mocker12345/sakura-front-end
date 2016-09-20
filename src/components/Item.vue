@@ -2,7 +2,9 @@
     <li class="col l4 s6 f-l">
         <div class="card">
             <div class="card-image waves-effect waves-block waves-light">
-                <img class="activator" :src="article.cover_url">
+                <a :href="'#/article/'+article.id">
+                    <img class="activator" :src="article.cover_url">
+                </a>
             </div>
             <div class="card-content">
                 <span class="card-title activator grey-text text-darken-4">
