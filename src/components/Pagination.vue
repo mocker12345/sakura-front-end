@@ -33,7 +33,7 @@ export default {
             // totalPage: 38,
             visiblePage: 10,
             // msg: '',
-            isNextDisabled: false,
+            isNextDisabled: true,
             isPreDisabled: true
         };
     },

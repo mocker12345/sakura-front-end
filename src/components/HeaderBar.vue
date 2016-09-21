@@ -1,7 +1,7 @@
 <template lang="html">
     <nav class="header-bar">
         <div class="nav-wrapper">
-            <a href="#/index" class="brand-logo">Logo</a>
+            <a href="#/index" class="brand-logo"></a>
             <a href="#" data-activates="mobile-demo" class="button-collapse"><i class="material-icons">menu</i></a>
             <ul class="right hide-on-med-and-down">
                 <li><a href="#/index">首页</a></li>
@@ -52,7 +52,7 @@ export default {
     @import "../assets/scss/variables.scss";
     .header-bar {
         height: auto !important;
-        line-height: auto !important;
+        line-height: 80px !important;
         background-color: $themeColor !important;
         padding: 25px;
         .nav-wrapper {
@@ -83,6 +83,11 @@ export default {
             .side-logo {
               height: 100px;
             }
+        }
+        .brand-logo {
+            width: 229px;
+            height: 88px;
+            background-image: url(../assets/images/logo.png);
         }
         // line-height: 128px !important;
     }
