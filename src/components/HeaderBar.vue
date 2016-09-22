@@ -9,7 +9,7 @@
                 <li><a href="#/category">分类</a></li>
             </ul>
             <ul class="side-nav" id="mobile-demo" v-on:click="hideSideNav">
-                <li><a href="#/index" class="side-logo">Logo</a></li>
+                <li><a href="#/index" class="side-logo"></a></li>
                 <li><a href="#/index">首页</a></li>
                 <li><a href="#/zdm">值得买</a></li>
                 <li><a href="#/category">分类</a></li>
@@ -52,7 +52,7 @@ export default {
     @import "../assets/scss/variables.scss";
     .header-bar {
         height: auto !important;
-        line-height: 80px !important;
+        line-height: auto !important;
         background-color: $themeColor !important;
         padding: 25px;
         .nav-wrapper {
@@ -68,7 +68,7 @@ export default {
             font-size: 30px;
             border-bottom: 1px solid #ddd;
             &:hover {
-                background: $bgColor;
+                // background: $bgColor;
             }
         }
         .side-nav {
@@ -81,13 +81,22 @@ export default {
 
             }
             .side-logo {
-              height: 100px;
+              height: 60px;
+              width: 100%;
+              background-repeat: no-repeat;
+              background-position: center;
+              padding: 60px 0;
             }
         }
-        .brand-logo {
-            width: 229px;
-            height: 88px;
+        .brand-logo, .side-logo {
+            width: 156px;
+            height: 60px;
             background-image: url(../assets/images/logo.png);
+        }
+        .side-logo {
+            background-image: url(../assets/images/logo_side.png);
+            margin: 0 auto;
+
         }
         // line-height: 128px !important;
     }

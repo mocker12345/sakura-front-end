@@ -1,5 +1,5 @@
 <template>
-    <div class="index-view">
+    <div class="index-view" >
         <!-- 轮播幻灯片 -->
         <gallery></gallery>
         <!-- 商品list -->
@@ -7,7 +7,6 @@
         <!-- 分页 -->
         <pagination :limit="limit" :offset.sync="offset" :total-page="totalPage"></pagination>
     </div>
-
 </template>
 <script>
     import Gallery from './Gallery.vue'
@@ -17,7 +16,7 @@
         components: {
             ItemCollection,
             Gallery,
-            Pagination,
+            Pagination
         },
         ready () {
 

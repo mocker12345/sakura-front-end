@@ -2,9 +2,24 @@
     <div class="box grey lighten-5">
       <div class="swiper-container container">
         <div class="swiper-wrapper">
-            <div class="swiper-slide slide-1"></div>
-            <div class="swiper-slide slide-2"></div>
-            <div class="swiper-slide slide-3"></div>
+            <div class="swiper-slide slide-1">
+                <img src="../assets/images/office.jpg" alt="" />
+                <div class="tip">
+                    <h3>这里是简介。。。</h3>
+                </div>
+            </div>
+            <div class="swiper-slide slide-2">
+                <img src="../assets/images/office.jpg" alt="" />
+                <div class="tip">
+                    <h3>这里是简介。。。</h3>
+                </div>
+            </div>
+            <div class="swiper-slide slide-3">
+                <img src="../assets/images/office.jpg" alt="" />
+                <div class="tip">
+                    <h3>这里是简介。。。</h3>
+                </div>
+            </div>
         </div>
         <div class="swiper-pagination"></div>
 
@@ -68,19 +83,27 @@ export default {
   .swiper-container {
         width: 80%;
         height: 400px;
-
-        .slide-1 {
-            background: #000;
-        }
-        .slide-2 {
-            background: #0f0;
-        }
-        .slide-3 {
-            background: #00f;
-        }
         .swiper-slide {
+            position: relative;
             img {
-
+                width: 100%;
+                height: 100%;
+            }
+            .tip {
+                width: 100%;
+                height: 20%;
+                background: rgba(66, 66, 66, 0.3);
+                bottom: 0;
+                right: 0;
+                left: 0;
+                position: absolute;
+                h3 {
+                    font-size: 14px;
+                    padding: 0 10px;
+                    color: #fafafa;
+                    line-height: 100%;
+                    margin: 10px 0;
+                }
             }
         }
 

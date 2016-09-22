@@ -1,5 +1,5 @@
 <template>
-  <div id="wrapper">
+  <div id="wrapper" style="height: 10000px">
     <!-- 头部导航栏 -->
     <header-bar></header-bar>
     <router-view
@@ -9,17 +9,18 @@
     </router-view>
 
     <footer-bar></footer-bar>
-
+    <go-top></go-top>
   </div>
 </template>
 <script>
     import HeaderBar from './components/HeaderBar.vue'
     import FooterBar from './components/FooterBar.vue'
-
+    import GoTop from './components/GoTop.vue'
     export default {
     components: {
         HeaderBar,
-        FooterBar
+        FooterBar,
+        GoTop
     }
 }
 </script>
