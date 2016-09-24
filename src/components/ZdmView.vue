@@ -15,8 +15,7 @@
         <div class="hot-topics-area col l4 hide-on-med-and-down">
             <h2 class="hot-topics-title"><i class="material-icons">trending_up</i>大家都在看</h2>
             <ul class="row">
-              <hot-topics-item></hot-topics-item>
-              <hot-topics-item></hot-topics-item>
+              <hot-topics-item v-for="hotTopic in hotTopicsData" :hot-topic="hotTopic"></hot-topics-item>
             </ul>
         </div>
     </div>
@@ -35,7 +34,8 @@ export default {
             totalPage: 0,
             commodities: [],
             isLoading: false,
-            noMore: false
+            noMore: false,
+            hotTopicsData: []
         }
     },
     created() {
@@ -43,6 +43,9 @@ export default {
         this.getCommodities(this.limit, this.offset).then((data) => {
             that.commodities = data.data
             that.totalPage = data.total_page
+        })
+        this.getHotTopicsData().then((data) => {
+            that.hotTopicsData = data.data
         })
     },
     computed: {},
@@ -73,6 +76,13 @@ export default {
                 limit: limit,
                 offset: offset
             })
+        },
+        getHotTopicsData: () => {
+            return api.article.get({
+                limit: 6,
+                offset: 1,
+                order: 'good'
+            })
         }
     },
     components: {
@@ -93,7 +103,6 @@ export default {
         margin-top: 15px;
         background: #eee;
         padding-left:20px !important;
-        height:300px;
     }
     .zdm-item {
       margin-top:0;

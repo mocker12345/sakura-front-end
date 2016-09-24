@@ -11,15 +11,15 @@
           <ul>
             <li><a class="grey-text text-lighten-6" href="#!">关于网龙</a></li>
             <li><i class="mdi-content-add"></i><a class="grey-text text-lighten-6" href="#!">加入我们</a></li>
-            <!-- <li><a class="grey-text text-lighten-3" href="#!">Link 3</a></li>
-            <li><a class="grey-text text-lighten-3" href="#!">Link 4</a></li> -->
+            <li><a class="grey-text text-lighten-3" href="#!">Link 3</a></li>
+            <li><a class="grey-text text-lighten-3" href="#!">Link 4</a></li>
           </ul> -->
         </div>
       </div>
     </div>
     <div class="footer-copyright">
-      <div class="container center z-depth-1">
-        © 2014 Copyright Text
+      <div class="container footer-container center z-depth-1">
+        © 2016 Copyright Text
       </div>
     </div>
   </footer>
@@ -44,4 +44,7 @@ export default {
     @import "../assets/scss/variables.scss";
 
     .page-footer { }
+    .footer-container {
+        margin-top: 0 !important;
+    }
 </style>

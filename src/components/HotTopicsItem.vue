@@ -1,11 +1,13 @@
 <template lang="html">
     <li class="l6 col">
-        <div class="card hot-topics">
-            <div class="card-image">
-                <img class="responsive-img" src="../assets/images/office.jpg" height="300" alt="" />
-                <span class="card-title">xxxxxxxxxxxxxxxxxxxxx</span>
+        <a :href="'#/article/'+hotTopic.id">
+            <div class="card hot-topics">
+                <div class="card-image">
+                    <img class="responsive-img" :src="hotTopic.cover_url" height="" alt="" />
+                    <span class="card-title">{{hotTopic.summary}}</span>
+                </div>
             </div>
-        </div>
+        </a>
     </li>
 </template>
 
@@ -17,17 +19,23 @@ export default {
 
         };
     },
+    props: [
+        'hotTopic'
+    ],
     computed: {},
     ready() {},
     attached() {},
-    methods: {},
+    methods: {
+
+    },
     components: {}
 };
 </script>
 
 <style lang="scss">
   .hot-topics {
-    height: 130px!important;
+    // height: 130px!important;
+    cursor: pointer;
     .card-image {
       height: 100%;
     }

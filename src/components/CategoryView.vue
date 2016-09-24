@@ -1,8 +1,10 @@
 <template lang="html">
     <div class="container category-container">
         <div class="row">
+            {{ isMobile }}
             <menu-list
               class="col l3 hide-on-med-and-down menu"
+              id="menu-list"
               :categories="categories"
               v-on:category-changed="switchCategory"></menu-list>
             <!-- <article-list class="article-list col l9"></article-list> -->
@@ -20,6 +22,18 @@
                 </ul>
             </div>
         </div>
+        <!-- Modal Trigger -->
+          <a class="waves-effect waves-light btn modal-trigger" @click="openModal">Modal</a>
+          <!-- Modal Structure -->
+          <div id="modal1" class="modal bottom-sheet">
+            <div class="modal-content">
+              <h4>Modal Header</h4>
+              <p>A bunch of text</p>
+            </div>
+            <div class="modal-footer">
+              <a href="#!" class=" modal-action modal-close waves-effect waves-green btn-flat">Agree</a>
+            </div>
+          </div>
     </div>
 </template>
 
@@ -47,7 +61,6 @@ export default {
             that.categoryId = data.data[0].id
             that.categoryName = this.categories[0].name
             that.getArticlesByCategoryId(that.categoryId, that.limit, that.offset).then((data) => {
-              debugger;
               that.totalPage = data.total_page
               that.articles = data.data
             })
@@ -77,6 +90,9 @@ export default {
             limit: limit,
             offset: offset
           })
+        },
+        openModal: () => {
+            $('#modal1').openModal()
         }
     },
     components: {
@@ -88,6 +104,11 @@ export default {
 
 <style lang="scss">
     @import "../assets/scss/common.scss";
+    @media screen and (max-width: 700px) {
+        #menu-list {
+            display: none;
+        }
+    }
     .category-container {
         margin-top: 20px;
     }

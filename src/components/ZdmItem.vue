@@ -9,8 +9,8 @@
                 <p class="result-price">￥<span v-text="item.price"></span></p>
                 <p class="result-content is-truncated" v-text="item.summary"></p>
                 <ul class="result-footer clearfix">
-                    <li class="date f-l">14:14</li>
-                    <li class="source f-l">diaodiao</li>
+                    <!-- <li class="date f-l">14:14</li> -->
+                    <li class="source f-l"></li>
                     <li class="view-result f-r">
                         <p><a href="{{ item.buy_url }}">查看详情</a></p>
                     </li>
@@ -76,7 +76,6 @@ export default {
             color: #333;
             overflow: hidden;
             display: block;
-            // margin-top: -5px;
             font-weight: bold;
 
         }
@@ -84,22 +83,25 @@ export default {
             font-size: 16px;
             color: #e60012;
             margin-top: 11px;
-            // overflow: hidden;
         }
         .result-content {
             font-size: 18px;
             line-height: 25px;
             color: #666;
-            // height: 60px;
             word-wrap: break-word;
             margin-top: 11px;
         }
         .result-footer {
             margin-top: 27px;
+            .source {
+                background: url(../assets/images/logo_zdm.png);
+                width: 100px;
+                height: 38px;
+            }
 
         }
         .source {
-            margin-left: 10px;
+            // margin-left: 10px;
         }
         .date, .source {
             padding-top: 10px;

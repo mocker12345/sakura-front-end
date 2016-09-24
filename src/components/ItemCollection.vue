@@ -37,6 +37,7 @@ export default {
   attached () {
       var self = this
       $('.items').imagesLoaded(() => {
+          debugger
           $('.items').masonry({
               itemSelector : '.item'
           });
@@ -44,7 +45,7 @@ export default {
             $('.items img').css({
                 'visibility': 'visible'
             })
-        }, 1000)
+          }, 1000)
           self.isLoading = false;
       })
   },

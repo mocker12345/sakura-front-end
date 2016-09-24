@@ -26,7 +26,6 @@
             this.getArticles(this.limit, this.offset).then((data) => {
                 that.articles = data.data
                 that.totalPage = data.total_page
-                
             })
         },
 
