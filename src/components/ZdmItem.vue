@@ -12,7 +12,7 @@
                     <!-- <li class="date f-l">14:14</li> -->
                     <li class="source f-l"></li>
                     <li class="view-result f-r">
-                        <p><a href="{{ item.buy_url }}">查看详情</a></p>
+                        <p><a href="{{ item.buy_url }}" target="_blank">查看详情</a></p>
                     </li>
                     <li class="buylink-site f-r" v-text="item.buy_site"></li>
                 </ul>
