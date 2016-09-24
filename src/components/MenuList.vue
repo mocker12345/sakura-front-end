@@ -25,9 +25,7 @@ export default {
     },
     computed: {},
     ready() {},
-    attached() {
-
-    },
+    attached() {},
     props: [
         'categories'
     ],
@@ -60,7 +58,6 @@ export default {
             &:nth-last-child(1) {
                 border-radius: 0 0 5px 5px;
             }
-
         }
         li.active {
             background-color: $hoverBgColor;
