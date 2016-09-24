@@ -1,6 +1,5 @@
 <template lang="html">
     <li class="result-item clearfix">
-        <a href="#">
             <div class="img-container f-l loading">
                 <img :src="item.cover_url" alt="" />
             </div>
@@ -17,7 +16,6 @@
                     <li class="buylink-site f-r" v-text="item.buy_site"></li>
                 </ul>
             </div>
-        </a>
     </li>
 </template>
 
