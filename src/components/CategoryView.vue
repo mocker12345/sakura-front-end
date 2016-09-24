@@ -22,7 +22,7 @@
                 </ul>
             </div>
         </div>
-        <a class="waves-effect waves-light btn modal-trigger modal-btn  red lighten-2 hide-on-large-only" @click="openModal" >选择分类</a>
+        <a class="waves-effect waves-light btn modal-trigger modal-btn grey darken-3 hide-on-large-only" @click="openModal" >选择分类</a>
         <!-- Modal Structure -->
         <div id="modal1" class="modal bottom-sheet">
             <div class="modal-content">
