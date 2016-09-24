@@ -54,6 +54,13 @@ export default {
             cursor: pointer;
             position: relative;
             padding: 2px 4px;
+            &:nth-child(1) {
+                border-radius: 5px 5px 0 0;
+            }
+            &:nth-last-child(1) {
+                border-radius: 0 0 5px 5px;
+            }
+
         }
         li.active {
             background-color: $hoverBgColor;
