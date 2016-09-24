@@ -122,7 +122,7 @@ export default {
     }
     .menu {
         background-color: #eee;
-        margin: 0!important;
+        margin: 0 !important;
     }
     .article-list {
         margin-top: 0 !important;
