@@ -92,7 +92,7 @@ export default {
             background-image: url(../assets/images/logo.png);
         }
         .side-logo {
-            background-image: url(../assets/images/logo_side.png);
+            background-image: url(../assets/images/logo_side_1.png);
             margin: 0 auto;
 
         }

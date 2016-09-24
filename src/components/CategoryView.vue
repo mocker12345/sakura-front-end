@@ -22,7 +22,7 @@
                 </ul>
             </div>
         </div>
-        <a class="waves-effect waves-light btn modal-trigger modal-btn grey darken-3 hide-on-large-only" @click="openModal" >选择分类</a>
+        <a class="waves-effect waves-light btn modal-trigger modal-btn  red lighten-2 hide-on-large-only" @click="openModal" >选择分类</a>
         <!-- Modal Structure -->
         <div id="modal1" class="modal bottom-sheet">
             <div class="modal-content">
@@ -129,9 +129,9 @@ export default {
     }
     .modal-btn {
         position: fixed;
-        bottom: 140px;
-        right: 90px;
-        font-size: 3rem;
+        top: 20%;
+        right: 5%;
+        font-size: 2rem;
         height: 70px;
         line-height: 70px;
         border-radius: 5px;
@@ -179,9 +179,9 @@ export default {
             }
             h4 {
                 text-align: center;
-                font-size: 3rem;
+                font-size: 3.5rem;
             }
-            padding: 15px;
+            padding: 25px;
         }
         .modal-footer {
             height: auto;

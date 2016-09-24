@@ -20,7 +20,7 @@
                     {{article.title}}
                     <i class="material-icons right">close</i>
                 </span>
-                <p v-html="article.content">Here is some more information about this product that is only revealed once clicked on.</p>
+                <p v-html="article.summary">Here is some more information about this product that is only revealed once clicked on.</p>
             </div>
         </div>
     </li>

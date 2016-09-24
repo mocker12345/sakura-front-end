@@ -1,5 +1,5 @@
 <template>
-  <div id="wrapper">
+  <div id="wrapper" style="height:20000px;">
     <!-- 头部导航栏 -->
     <header-bar></header-bar>
     <router-view
