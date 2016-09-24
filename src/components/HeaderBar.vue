@@ -63,19 +63,17 @@ export default {
             height: 80px;
             background: #424242;
             line-height: 80px;
-            // color: #fff;
             background-color: $bgColor;
             font-size: 30px;
             border-bottom: 1px solid #ddd;
             &:hover {
-                // background: $bgColor;
             }
         }
         .side-nav {
             background-color: $bgColor;
             a {
                 text-align: center;
-                font-size: 30px;
+                font-size: 3rem;
                 height: 100px;
                 line-height: 100px;
 
@@ -85,7 +83,7 @@ export default {
               width: 100%;
               background-repeat: no-repeat;
               background-position: center;
-              padding: 60px 0;
+              padding: 70px 0;
             }
         }
         .brand-logo, .side-logo {

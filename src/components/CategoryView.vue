@@ -22,18 +22,25 @@
                 </ul>
             </div>
         </div>
-        <!-- Modal Trigger -->
-          <a class="waves-effect waves-light btn modal-trigger" @click="openModal">Modal</a>
-          <!-- Modal Structure -->
-          <div id="modal1" class="modal bottom-sheet">
+        <a class="waves-effect waves-light btn modal-trigger modal-btn grey darken-3 hide-on-large-only" @click="openModal" >选择分类</a>
+        <!-- Modal Structure -->
+        <div id="modal1" class="modal bottom-sheet">
             <div class="modal-content">
-              <h4>Modal Header</h4>
-              <p>A bunch of text</p>
+                <h4>请选择分类</h4>
+                <ul class="collection">
+                    <li class="collection-item"
+                        v-for="cate in categories"
+                        :class="{'active': $index==0}"
+                        v-text="cate.name"
+                        @click="switchCategory(cate.id, cate.name), activeItem($index)"></li>
+                    <li class="collection-item"
+                        @click="switchCategory(0, '其他'), activeItem(-1)">其他</li>
+                </ul>
             </div>
             <div class="modal-footer">
-              <a href="#!" class=" modal-action modal-close waves-effect waves-green btn-flat">Agree</a>
+
             </div>
-          </div>
+        </div>
     </div>
 </template>
 
@@ -80,6 +87,7 @@ export default {
             // 切换category后，将this.offset置为 1
             this.offset = 1
             var that = this
+            $('#modal1').closeModal()
             this.getArticlesByCategoryId(this.categoryId, this.limit, this.offset).then(function(data) {
               that.totalPage = data.total_page
               that.articles = data.data
@@ -93,6 +101,11 @@ export default {
         },
         openModal: () => {
             $('#modal1').openModal()
+        },
+        activeItem: (index) => {
+            $('.modal .collection-item').removeClass('active')
+            index = (index == -1) ? ($('.modal .collection-item').length-1):index
+            $('.modal .collection-item').eq(index).addClass('active');
         }
     },
     components: {
@@ -104,11 +117,6 @@ export default {
 
 <style lang="scss">
     @import "../assets/scss/common.scss";
-    @media screen and (max-width: 700px) {
-        #menu-list {
-            display: none;
-        }
-    }
     .category-container {
         margin-top: 20px;
     }
@@ -118,6 +126,15 @@ export default {
     }
     .article-list {
         margin-top: 0 !important;
+    }
+    .modal-btn {
+        position: fixed;
+        bottom: 140px;
+        right: 90px;
+        font-size: 3rem;
+        height: 70px;
+        line-height: 70px;
+        border-radius: 5px;
     }
     .content {
         padding-left: 10px;
@@ -139,6 +156,35 @@ export default {
                 vertical-align: top;
                 color: #616368;
             }
+        }
+    }
+    .modal {
+        width: 80% !important;
+        max-height: 100% !important;
+        margin: auto !important;
+        border-radius: 10px 10px 0 0 !important;
+        .modal-content {
+            .collection {
+                .collection-item {
+                    font-size: 2.5rem;
+                    padding: 20px 40px;
+                    text-align: center;
+                    cursor: pointer;
+                    line-height: 3rem;
+                }
+                .collection-item.active {
+                    color: #fff;
+                    background: #424242;
+                }
+            }
+            h4 {
+                text-align: center;
+                font-size: 3rem;
+            }
+            padding: 15px;
+        }
+        .modal-footer {
+            height: auto;
         }
     }
 </style>

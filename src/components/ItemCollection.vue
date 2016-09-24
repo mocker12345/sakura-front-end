@@ -37,16 +37,15 @@ export default {
   attached () {
       var self = this
       $('.items').imagesLoaded(() => {
-          debugger
-          $('.items').masonry({
-              itemSelector : '.item'
-          });
           setTimeout(() => {
+            $('.items').masonry({
+                itemSelector : '.item'
+            });
             $('.items img').css({
                 'visibility': 'visible'
             })
           }, 1000)
-          self.isLoading = false;
+          self.isLoading = false
       })
   },
 
