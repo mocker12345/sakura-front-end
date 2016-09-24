@@ -8,7 +8,6 @@
                 <p class="result-price">￥<span v-text="item.price"></span></p>
                 <p class="result-content is-truncated" v-text="item.summary"></p>
                 <ul class="result-footer clearfix">
-                    <!-- <li class="date f-l">14:14</li> -->
                     <li class="source f-l"></li>
                     <li class="view-result f-r">
                         <p><a href="{{ item.buy_url }}" target="_blank">查看详情</a></p>
@@ -97,9 +96,6 @@ export default {
                 height: 38px;
             }
 
-        }
-        .source {
-            // margin-left: 10px;
         }
         .date, .source {
             padding-top: 10px;

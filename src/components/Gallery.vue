@@ -22,11 +22,9 @@
             </div>
         </div>
         <div class="swiper-pagination"></div>
-
         <!-- 如果需要导航按钮 -->
         <div class="swiper-button-prev swiper-button-black"></div>
         <div class="swiper-button-next swiper-button-black"></div>
-
         <!-- 如果需要滚动条 -->
         <!-- <div class="swiper-scrollbar"></div> -->
       </div>
@@ -65,7 +63,6 @@ export default {
             modifier: 2,
             slideShadows : true
         }
-
         // 如果需要滚动条
         // scrollbar: '.swiper-scrollbar',
       })

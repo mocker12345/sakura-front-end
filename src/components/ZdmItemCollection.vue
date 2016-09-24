@@ -1,5 +1,4 @@
 <template>
-
   <div class="zdm-item-collection s12 l8 col">
     <ul class="zdm-item">
         <zdm-item>

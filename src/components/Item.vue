@@ -30,9 +30,7 @@
 export default {
     name: 'Item',
     data() {
-        return {
-            // image: './src/assets/images/office.jpg'
-        }
+        return {}
     },
     props: [
         'article',

@@ -35,18 +35,6 @@ export default {
 
 <style lang="scss">
     @import "../assets/scss/variables.scss";
-
-    .page-footer {
-        .white-text {
-            font-size: 2rem;
-        }
-        .grey-text {
-            font-size: 1.5rem;
-        }
-    }
-    .footer-copyright {
-        font-size: 1.5rem;
-    }
     .footer-container {
         margin-top: 0 !important;
     }

@@ -87,8 +87,6 @@ export default {
     .good {
       vertical-align: top;
     }
-
   }
 }
-
 </style>

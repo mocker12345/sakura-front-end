@@ -96,6 +96,5 @@ export default {
             margin: 0 auto;
 
         }
-        // line-height: 128px !important;
     }
 </style>

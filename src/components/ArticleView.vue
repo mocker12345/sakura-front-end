@@ -17,7 +17,6 @@ export default {
   },
   route: {
       data({ to }) {
-        //   debugger;
           var articleId = to.params.id
           var that = this
           return this.getArticleData(articleId).then((data) => {
@@ -27,21 +26,16 @@ export default {
                   isSigleArticle: !data.children.length
               }
           })
-
-
       }
   },
   computed: {},
-  ready() {
-    //   getArticleData
-  },
+  ready() {},
   attached() {},
   methods: {
       getArticleData: (articleId) => {
           return api.article(articleId).get()
       }
   },
-
   components: {
     ArticleSigle,
     ArticleHasChild
@@ -50,6 +44,4 @@ export default {
 </script>
 
 <style lang="scss">
-
-
 </style>

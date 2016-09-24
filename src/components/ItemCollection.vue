@@ -6,7 +6,6 @@
     </div>
     <ul class="items row">
         <item class="item" v-for="article in articles" :article="article"></item>
-        <!-- <item class="item" img="http://avatar.csdn.net/7/2/D/1_avenccssddnn.jpg"></item> -->
     </ul>
   </div>
 </template>
@@ -68,7 +67,6 @@ export default {
 
 <style lang="scss">
     .item-collection {
-        // padding: 20px;
         overflow: hidden;
     }
     .progress {

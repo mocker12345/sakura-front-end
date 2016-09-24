@@ -7,7 +7,6 @@
               id="menu-list"
               :categories="categories"
               v-on:category-changed="switchCategory"></menu-list>
-            <!-- <article-list class="article-list col l9"></article-list> -->
             <div class="content col l9 s12">
                 <div class="breadcrumb hide-on-med-and-down">
                     <a href="javascript:void(0);">全部文章</a>
@@ -15,9 +14,6 @@
                     <a href="javascript:void(0);">{{ categoryName }}</a>
                 </div>
                 <ul class="article-list clearfix">
-                    <!-- <div class="progress" >
-                      <div class="indeterminate"></div>
-                    </div> -->
                     <item v-for="article in articles" :article="article"></item>
                 </ul>
             </div>

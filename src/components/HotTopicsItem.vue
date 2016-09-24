@@ -34,7 +34,6 @@ export default {
 
 <style lang="scss">
   .hot-topics {
-    // height: 130px!important;
     cursor: pointer;
     .card-image {
       height: 100%;
