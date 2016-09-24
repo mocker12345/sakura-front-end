@@ -11,7 +11,6 @@
               <p class="summery" v-text="articleData.summary"></p>
             </div>
           </div>
-
         </div>
       </div>
     </div>
