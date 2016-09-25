@@ -14,7 +14,7 @@
                     <a href="javascript:void(0);">{{ categoryName }}</a>
                 </div>
                 <ul class="article-list clearfix">
-                    <item v-for="article in articles" :article="article"></item>
+                    <item v-for="article in articles" :article="article" class="cate-item"></item>
                 </ul>
             </div>
         </div>
@@ -26,11 +26,12 @@
                 <ul class="collection">
                     <li class="collection-item"
                         v-for="cate in categories"
-                        :class="{'active': $index==0}"
                         v-text="cate.name"
                         @click="switchCategory(cate.id, cate.name), activeItem($index)"></li>
                     <li class="collection-item"
-                        @click="switchCategory(0, '其他'), activeItem(-1)">其他</li>
+                        @click="switchCategory(0, '其他'), activeItem(categories.length)">其他</li>
+                    <li class="collection-item active"
+                        @click="switchCategory(-1, '全部'), activeItem(categories.length+1)">全部</li>
                 </ul>
             </div>
             <div class="modal-footer">
@@ -50,7 +51,7 @@ export default {
             categoryId: 0,
             categoryName: '',
             // 以下为分页参数
-            limit: 4,
+            limit: 6,
             offset: 1,
             totalPage: 0,
             articles: []
@@ -60,9 +61,10 @@ export default {
     created() {
         var that = this
         this.getCategories().then((data) => {
+            // 默认分类显示全部
             that.categories = data.data
-            that.categoryId = data.data[0].id
-            that.categoryName = this.categories[0].name
+            that.categoryId = -1
+            that.categoryName = '全部'
             that.getArticlesByCategoryId(that.categoryId, that.limit, that.offset).then((data) => {
               that.totalPage = data.total_page
               that.articles = data.data
@@ -70,6 +72,32 @@ export default {
         })
     },
     ready() {
+        var self = this
+        $('.items').imagesLoaded(() => {
+            self.timer = setInterval(() => {
+              $('.article-list').masonry({
+                  itemSelector : '.cate-item'
+              });
+            }, 500)
+        })
+
+        $(document).scroll(function() {
+          if ($(document).scrollTop() >= $(document).height()-$(window).height()-100) {
+              debugger
+              if (self.offset < self.totalPage) {
+                  self.offset++
+                  self.isLoading = true
+                  self.getArticlesByCategoryId(self.categoryId, self.limit, self.offset).then((data) => {
+                      self.articles = self.articles.concat(data.data)
+                      self.totalPage = data.total_page
+                      self.isLoading = false
+                  })
+              } else {
+                  self.noMore = true
+                  self.isLoading = false
+              }
+          }
+        })
 
     },
     attached() {},
@@ -78,6 +106,7 @@ export default {
             return api.category.get()
         },
         switchCategory: function(categoryId, categoryName) {
+            debugger
             this.categoryId = categoryId
             this.categoryName = categoryName
             // 切换category后，将this.offset置为 1
@@ -90,6 +119,12 @@ export default {
             })
         },
         getArticlesByCategoryId: function(id, limit, offset) {
+          if (id == -1) {
+              return api.article.get({
+                limit: limit,
+                offset: offset
+              })
+          }
           return api.category(id).articles.get({
             limit: limit,
             offset: offset
@@ -107,6 +142,9 @@ export default {
     components: {
         MenuList,
         Item
+    },
+    beforeDestroy () {
+        clearInterval(this.timer)
     }
 };
 </script>

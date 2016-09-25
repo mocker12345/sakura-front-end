@@ -28,7 +28,6 @@ export default {
   computed: {},
   ready() {
       this.timer = setInterval(() => {
-          debugger
           if ($(window).height()-$('.page-footer').height() > $(document.body).height()) {
               $('.page-footer').addClass('fixed')
           } else {

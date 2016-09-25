@@ -1,16 +1,20 @@
 <template lang="html">
     <ul class="menu-list">
         <li class="menu-list-item" v-for="item in categories"
-            @click="getArticlesByCategory(item.id, $index, item.name)"
-            :class="{'active': $index==0}">
+            @click="getArticlesByCategory(item.id, $index, item.name)">
             <a href="javascript:void(0);" class="item-title" >{{ item.name }}</a>
             <i class="material-icons icon-arrow">keyboard_arrow_right</i>
         </li>
         <!-- 其他分类，id为0 -->
         <li class="menu-list-item"
-            @click="getArticlesByCategory(0, -1, '其他')"
-            :class="{'active': $index==0}">
+            @click="getArticlesByCategory(0, categories.length, '其他')">
             <a href="javascript:void(0);" class="item-title" >其他</a>
+            <i class="material-icons icon-arrow">keyboard_arrow_right</i>
+        </li>
+        <!-- 全部 -->
+        <li class="menu-list-item active"
+            @click="getArticlesByCategory(-1, categories.length+1, '全部')">
+            <a href="javascript:void(0);" class="item-title" >全部</a>
             <i class="material-icons icon-arrow">keyboard_arrow_right</i>
         </li>
     </ul>
@@ -32,8 +36,7 @@ export default {
     methods: {
         getArticlesByCategory: function(categoryId, index, categoryName) {
             $('.menu-list-item').removeClass('active')
-            index == -1 ? $('.menu-list-item:last').addClass('active') :
-                          $('.menu-list-item').eq(index).addClass('active')
+            $('.menu-list-item').eq(index).addClass('active')
             this.$emit('category-changed', categoryId, categoryName)
         }
     },
