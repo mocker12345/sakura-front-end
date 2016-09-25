@@ -39,14 +39,13 @@ export default {
 <style lang="scss">
     .fixed-action-btn {
         &:hover {
-
             background: transparent !important;
         }
     }
     .go-top {
         background: #424242;
-        width: 90px !important;
-        height: 90px !important;
+        width: 60px !important;
+        height: 60px !important;
         border-radius: 50%;
         &:hover {
             background-color: #303030;
@@ -54,7 +53,7 @@ export default {
         }
         i {
             color: #fafafa;
-            line-height: 90px !important;
+            line-height: 60px !important;
             font-size: 4.5rem !important;
         }
     }

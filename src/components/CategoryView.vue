@@ -74,24 +74,26 @@ export default {
     },
     watch: {
         'categoryId': function(newVal, oldVal) {
-            clearInterval(this.timer)
-            debugger
-            // this.timer = setInterval(function() {
-                $('.article-list').masonry({
-                    itemSelector : '.item'
-                })
-            // }, 2000)
+            if (this.grid) {
+                this.grid.masonry('destroy')
+                var self = this
+                self.timer = setTimeout(function() {
+                    self.grid.masonry({
+                        itemSelector: '.item'
+                    })
+                }, 200)
+            }
         }
     },
     ready() {
         var self = this
         $('.article-list').imagesLoaded(() => {
             clearInterval(self.timer)
-            self.timer = setInterval(function() {
-              $('.article-list').masonry({
-                  itemSelector : '.item'
-              })
-          }, 2000)
+            self.timer = setTimeout(function() {
+                self.grid = $('.article-list').masonry({
+                    itemSelector: '.item'
+                })
+            })
         })
 
         $(document).scroll(function() {
