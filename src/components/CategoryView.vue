@@ -74,7 +74,7 @@ export default {
     },
     ready() {
         var self = this
-        $('.items').imagesLoaded(() => {
+        $('.article-list').imagesLoaded(() => {
             self.timer = setInterval(function() {
               $('.article-list').masonry({
                   itemSelector : '.item'
