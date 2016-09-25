@@ -41,7 +41,7 @@ export default {
 
     },
     attached() {
-this.$dispatch('ITEM_ATTACHED');
+      this.$dispatch('ITEM_ATTACHED');
     },
     methods: {},
     components: {}

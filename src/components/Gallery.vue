@@ -63,10 +63,10 @@ export default {
               nextButton: '.swiper-button-next',
               prevButton: '.swiper-button-prev',
               coverflow: {
-                  rotate: 30,
-                  stretch: 5,
-                  depth: 60,
-                  modifier: 2,
+                  rotate: 20,
+                  stretch: 30,
+                  depth: 80,
+                  modifier: 1,
                   slideShadows : true
               }
               // 如果需要滚动条
@@ -96,7 +96,7 @@ export default {
   methods: {
       getGalleryData: () => {
           return api.article.get({
-              limit: 3,
+              limit: 5,
               offset: 1,
               order: 'good'
           })
@@ -147,7 +147,8 @@ export default {
 
     }
     .swiper-container-mobile {
-        height: 200px;
+        height: 255px;
+        overflow: hidden;
     }
   div.box {
     padding:20px;

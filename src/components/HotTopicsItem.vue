@@ -4,7 +4,7 @@
             <div class="card hot-topics">
                 <div class="card-image">
                     <img class="responsive-img" :src="hotTopic.cover_url" height="" alt="" />
-                    <span class="card-title">{{hotTopic.summary}}</span>
+                    <span class="card-title">{{hotTopic.title}}</span>
                 </div>
             </div>
         </a>
@@ -36,7 +36,8 @@ export default {
   .hot-topics {
     cursor: pointer;
     .card-image {
-      height: 100%;
+      height: 100px;
+      width: 125px
     }
     img {
       height: 100%;
@@ -46,7 +47,7 @@ export default {
       word-wrap: break-word;
       margin: 0;
       padding: 0 5px !important;
-      font-size: 15px !important;
+      font-size: .5rem;
       background: rgba(0,0,0,.4);
       width: 100%;
     }

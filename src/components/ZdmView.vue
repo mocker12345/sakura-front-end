@@ -78,7 +78,7 @@ export default {
         },
         getHotTopicsData: () => {
             return api.article.get({
-                limit: 6,
+                limit: 4,
                 offset: 1,
                 order: 'good'
             })

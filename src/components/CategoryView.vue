@@ -48,14 +48,15 @@ export default {
     data() {
         return {
             categories: [],
-            categoryId: 0,
+            categoryId: undefined,
             categoryName: '',
             // 以下为分页参数
-            limit: 6,
+            limit: 3,
             offset: 1,
             totalPage: 0,
             articles: [],
-            timer: null
+            timer: null,
+            isLoading:null
         }
     },
     computed: {},
@@ -74,16 +75,27 @@ export default {
     },
     watch: {
         'categoryId': function(newVal, oldVal) {
-            if (this.grid) {
+            if (this.grid && oldVal !== undefined) {
                 this.grid.masonry('destroy')
                 var self = this
                 self.timer = setTimeout(function() {
                     self.grid.masonry({
                         itemSelector: '.item'
                     })
-                }, 200)
+                }, 800)
             }
-        }
+        },
+        // 'isLoading':function(newVal,oldVal) {
+        //   if (this.grid && !newVal){
+        //     this.grid.masonry('destroy')
+        //     var self = this
+        //     self.timer = setTimeout(function() {
+        //         self.grid.masonry({
+        //             itemSelector: '.item'
+        //         })
+        //     }, 800)
+        //   }
+        // }
     },
     ready() {
         var self = this
@@ -93,18 +105,21 @@ export default {
                 self.grid = $('.article-list').masonry({
                     itemSelector: '.item'
                 })
-            })
+            },800)
         })
 
         $(document).scroll(function() {
-          if ($(document).scrollTop() >= $(document).height()-$(window).height()-100) {
+          if ($(document).height() - $(window).height() - $(document).scrollTop() < 10) {
               if (self.offset < self.totalPage) {
                   self.offset++
                   self.isLoading = true
                   self.getArticlesByCategoryId(self.categoryId, self.limit, self.offset).then((data) => {
-                      self.articles = self.articles.concat(data.data)
+                      // self.articles = self.articles.concat(data.data)
                       self.totalPage = data.total_page
                       self.isLoading = false
+                      // var item = $('.item')
+                      // self.grid.append(item)masonry('appended',item)
+                      // debugger;
                   })
               } else {
                   self.noMore = true

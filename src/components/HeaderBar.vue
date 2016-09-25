@@ -4,9 +4,9 @@
             <a href="#/index" class="brand-logo"><img src="../assets/images/logo.png" alt="" width="156" /></a>
             <a href="#" data-activates="mobile-demo" class="button-collapse"><i class="material-icons">menu</i></a>
             <ul class="right hide-on-med-and-down">
-                <li><a href="#/index">首页</a></li>
-                <li><a href="#/zdm">值得买</a></li>
-                <li><a href="#/category">分类</a></li>
+                <li><a href="#/index">Home</a></li>
+                <li><a href="#/zdm">Commodity</a></li>
+                <li><a href="#/category">Category</a></li>
             </ul>
             <ul class="side-nav" id="mobile-demo" v-on:click="hideSideNav">
                 <li><a href="#/index" class="side-logo"><img src="../assets/images/logo_side.png" alt="" width="100" /></a></li>

@@ -5,8 +5,9 @@ import IndexView from './components/IndexView.vue'
 import ZdmView from './components/ZdmView.vue'
 import CategoryView from './components/CategoryView.vue'
 import ArticleView from './components/ArticleView.vue'
-
+import vueMasonry from '../static/ma.js'
 Vue.use(Router)
+Vue.use(vueMasonry)
 var router = new Router()
 
 router.map({
