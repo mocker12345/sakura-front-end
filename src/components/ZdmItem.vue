@@ -92,7 +92,7 @@ export default {
             margin-top: 27px;
             .source {
                 background: url(../assets/images/logo_zdm.png);
-                width: 100px;
+                width: 35px;
                 height: 38px;
             }
 
@@ -106,9 +106,9 @@ export default {
             p {
                 // width: 80px;
                 // height: 30px;
-                padding: 5px 10px;
+                padding: 3px 6px;
                 line-height: 30px;
-                font-size: 1.5rem;
+                font-size: 1.25rem;
                 color: #fff;
                 background: #ea7780;
                 text-align: center;

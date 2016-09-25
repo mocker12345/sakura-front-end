@@ -3,7 +3,7 @@
         <ul class="pagination">
             <li v-bind:class="{'disabled': isPreDisabled, 'waves-effect': !isPreDisabled}"
                 v-on:click="pre">
-                <a href="#!">
+                <a href="#!" class="pre-or-next">
                     <i class="material-icons">chevron_left</i>
                 </a>
             </li>
@@ -14,7 +14,7 @@
             </li>
             <li v-bind:class="{'disabled': isNextDisabled, 'waves-effect': !isNextDisabled}"
                 v-on:click="next">
-                <a href="#!">
+                <a href="#!" class="pre-or-next">
                     <i class="material-icons">
                         chevron_right
                     </i>
@@ -107,5 +107,8 @@ export default {
     @import "../assets/scss/variables.scss";
     .active {
         background-color: $themeColor !important;
+    }
+    .pre-or-next {
+        line-height: 40px !important;
     }
 </style>

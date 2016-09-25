@@ -93,7 +93,7 @@ export default {
 
 <style lang="scss">
     .no-more-tip {
-        font-size: 18px;
+        font-size: 1.5rem;
     }
     .zdm-item-collection {
         margin-top: 15px;
@@ -107,7 +107,7 @@ export default {
       margin-top:0;
     }
     .hot-topics-title {
-      font-size: 16px;
+      font-size: 1.5rem;
       color: #000;
       margin-bottom: 0!important;
       i {

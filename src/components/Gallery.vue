@@ -80,7 +80,7 @@ export default {
                 centeredSlides: true,
                 autoplay:3000,
                 // autoplayDisableOnInteraction : false,
-                pagination: '.swiper-pagination-mobile'
+                // pagination: '.swiper-pagination-mobile'
             })
           })
 
@@ -109,8 +109,9 @@ export default {
 
 <style lang="scss">
 @import "../../node_modules/swiper/dist/css/swiper.min.css";
+
   .swiper-container {
-        width: 80%;
+        width: 100%;
         height: 400px;
         .swiper-slide {
             position: relative;
@@ -135,7 +136,7 @@ export default {
                 left: 0;
                 position: absolute;
                 h3 {
-                    font-size: 2rem;
+                    font-size: 1.5rem;
                     padding: 10px 10px;
                     color: #fafafa;
                     line-height: 100%;
@@ -144,6 +145,9 @@ export default {
             }
         }
 
+    }
+    .swiper-container-mobile {
+        height: 200px;
     }
   div.box {
     padding:20px;

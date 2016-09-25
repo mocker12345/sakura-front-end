@@ -56,19 +56,20 @@ this.$dispatch('ITEM_ATTACHED');
         }
         .card-content {
             .card-title {
-                font-size: 2rem;
+                line-height: 24px;
+                font-size: 1.5rem;
             }
             p a {
-                font-size: 1.75rem;
+                font-size: 1rem;
                 color: #606060;
             }
         }
         .card-reveal {
             .card-title {
-                font-size: 2rem;
+                font-size: 1.5rem;
             }
             p {
-                font-size: 1.75rem;
+                font-size: 1rem;
             }
         }
     }

@@ -32,22 +32,22 @@
     }
     @media only screen and (min-width: 0) and (max-width:799px){
         html {
-            font-size: 24px;
+            font-size: 10px;
         }
     }
     @media screen and (min-width:800px) and (max-width:959px) {
         html {
-            font-size: 20px;
+            font-size: 10px;
         }
     }
     @media screen and (min-width:960px) and (max-width:1079px) {
         html {
-            font-size: 16px;
+            font-size: 12px;
         }
     }
     @media only screen and (min-width:1080px) {
         html {
-            font-size: 10px;
+            font-size: 14px;
         }
     }
     // @media screen and (min-width:480px) and (max-width:639px) {

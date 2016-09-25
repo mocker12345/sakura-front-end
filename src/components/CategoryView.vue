@@ -76,11 +76,11 @@ export default {
         'categoryId': function(newVal, oldVal) {
             clearInterval(this.timer)
             debugger
-            this.timer = setInterval(function() {
+            // this.timer = setInterval(function() {
                 $('.article-list').masonry({
                     itemSelector : '.item'
                 })
-            }, 2000)
+            // }, 2000)
         }
     },
     ready() {
@@ -175,9 +175,9 @@ export default {
         position: fixed;
         top: 60%;
         right: 5%;
-        font-size: 2rem;
-        height: 70px;
-        line-height: 70px;
+        font-size: 1.5rem;
+        // height: 70px;
+        // line-height: 70px;
         border-radius: 5px;
 
     }
@@ -192,7 +192,7 @@ export default {
                 color: #616368;
                 line-height: 33px;
                 height: 100%;
-                font-size: 18px;
+                font-size: 1.75rem;
                 &:link {
                     color: #616368;
                 }
@@ -214,11 +214,11 @@ export default {
         .modal-content {
             .collection {
                 .collection-item {
-                    font-size: 1.75rem;
-                    padding: 20px 40px;
+                    font-size: 1.25rem;
+                    // padding: 20px 40px;
                     text-align: center;
                     cursor: pointer;
-                    line-height: 3rem;
+                    // line-height: 3rem;
                 }
                 .collection-item.active {
                     color: #fff;
@@ -227,7 +227,7 @@ export default {
             }
             h4 {
                 text-align: center;
-                font-size: 2.25rem;
+                font-size: 1.5rem;
             }
             padding: 25px;
         }
