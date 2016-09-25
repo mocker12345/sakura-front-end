@@ -69,7 +69,7 @@ export default {
             padding: 5px;
         }
         .result-title {
-            font-size: 1.5rem;
+            font-size: 1.2rem;
             color: #333;
             overflow: hidden;
             display: block;
@@ -82,7 +82,7 @@ export default {
             margin-top: 11px;
         }
         .result-content {
-            font-size: 1.5rem;
+            font-size: 0.8rem;
             line-height: 25px;
             color: #666;
             word-wrap: break-word;
