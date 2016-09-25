@@ -36,7 +36,7 @@ export default {
   attached () {
       var self = this
       $('.items').imagesLoaded(() => {
-          setTimeout(() => {
+          setInterval(() => {
             $('.items').masonry({
                 itemSelector : '.item'
             });

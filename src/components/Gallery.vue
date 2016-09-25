@@ -2,22 +2,11 @@
     <div class="box grey lighten-5">
       <div class="swiper-container container">
         <div class="swiper-wrapper">
-            <div class="swiper-slide slide-1">
-                <img src="../assets/images/office.jpg" alt="" />
+            <div class="swiper-slide" v-for="gallery in galleryData">
+                <a :href="'#/article/'+gallery.id"></a>
+                <img :src="gallery.cover_url" alt="" />
                 <div class="tip">
-                    <h3>这里是简介。。。</h3>
-                </div>
-            </div>
-            <div class="swiper-slide slide-2">
-                <img src="../assets/images/office.jpg" alt="" />
-                <div class="tip">
-                    <h3>这里是简介。。。</h3>
-                </div>
-            </div>
-            <div class="swiper-slide slide-3">
-                <img src="../assets/images/office.jpg" alt="" />
-                <div class="tip">
-                    <h3>这里是简介。。。</h3>
+                    <h3 v-text="gallery.summary">这里是简介。。。</h3>
                 </div>
             </div>
         </div>
@@ -36,40 +25,60 @@ export default {
   name:'Gallery',
   data() {
     return {
+        galleryData: []
     };
+  },
+  created() {
+      var that = this
+      this.getGalleryData().then((data) => {
+          debugger
+          that.galleryData = data.data
+
+          that.$nextTick(()=>{
+            var swiper = new Swiper('.swiper-container', {
+              direction: 'horizontal',
+              loop:true,
+              effect : 'coverflow',
+              slidesPerView: 3,
+              centeredSlides: true,
+              autoplay:3000,
+              autoplayDisableOnInteraction : false,
+              // 如果需要分页器
+              pagination: '.swiper-pagination',
+              paginationClickable :true,
+
+              // 如果需要前进后退按钮
+              nextButton: '.swiper-button-next',
+              prevButton: '.swiper-button-prev',
+              coverflow: {
+                  rotate: 30,
+                  stretch: 5,
+                  depth: 60,
+                  modifier: 2,
+                  slideShadows : true
+              }
+              // 如果需要滚动条
+              // scrollbar: '.swiper-scrollbar',
+            })
+          })
+      })
+
+
   },
   computed: {},
   ready() {
-    this.$nextTick(()=>{
-      var swiper = new Swiper('.swiper-container', {
-        direction: 'horizontal',
-        loop:true,
-        effect : 'coverflow',
-        slidesPerView: 3,
-        centeredSlides: true,
-        autoplay:3000,
-        autoplayDisableOnInteraction : false,
-        // 如果需要分页器
-        pagination: '.swiper-pagination',
-        paginationClickable :true,
 
-        // 如果需要前进后退按钮
-        nextButton: '.swiper-button-next',
-        prevButton: '.swiper-button-prev',
-        coverflow: {
-            rotate: 30,
-            stretch: 5,
-            depth: 60,
-            modifier: 2,
-            slideShadows : true
-        }
-        // 如果需要滚动条
-        // scrollbar: '.swiper-scrollbar',
-      })
-    })
   },
   attached() {},
-  methods: {},
+  methods: {
+      getGalleryData: () => {
+          return api.article.get({
+              limit: 3,
+              offset: 1,
+              order: 'good'
+          })
+      }
+  },
   components: {
   }
 };
@@ -85,6 +94,14 @@ export default {
             img {
                 width: 100%;
                 height: 100%;
+            }
+            a {
+                position: absolute;
+                top: 0;
+                left: 0;
+                right: 0;
+                bottom: 0;
+                // display: block;
             }
             .tip {
                 width: 100%;

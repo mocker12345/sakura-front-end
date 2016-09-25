@@ -1,6 +1,6 @@
 <template lang="html">
   <footer class="page-footer grey darken-3 z-depth-1">
-    <div class="">
+    <div class="hide-on-med-and-down">
       <div class="row">
         <div class="col l4 s12 offset-l2">
           <h5 class="white-text">关爱程序员，淘到好东西</h5>
@@ -26,7 +26,16 @@ export default {
     };
   },
   computed: {},
-  ready() {},
+  ready() {
+      setInterval(() => {
+          debugger
+          if ($(window).height() > $(document.body).height()) {
+              $('.page-footer').addClass('fixed')
+          } else {
+              $('.page-footer').removeClass('fixed')
+          }
+      }, 200)
+  },
   attached() {},
   methods: {},
   components: {}
@@ -38,4 +47,12 @@ export default {
     .footer-container {
         margin-top: 0 !important;
     }
+    // .page-footer
+    .page-footer.fixed{
+        position: fixed;
+        bottom: 0;
+        left: 0;
+        right: 0;
+    }
+
 </style>

@@ -125,12 +125,16 @@ export default {
     }
     .modal-btn {
         position: fixed;
-        top: 20%;
+        top: 60%;
         right: 5%;
         font-size: 2rem;
         height: 70px;
         line-height: 70px;
         border-radius: 5px;
+
+    }
+    .modal-btn.grey.darken-3 {
+        background-color: rgba(66,66,66,.8) !important;
     }
     .content {
         padding-left: 10px;
