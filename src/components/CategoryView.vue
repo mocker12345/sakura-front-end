@@ -194,7 +194,7 @@ export default {
                 color: #616368;
                 line-height: 33px;
                 height: 100%;
-                font-size: 1.75rem;
+                font-size: 1.25rem;
                 &:link {
                     color: #616368;
                 }
