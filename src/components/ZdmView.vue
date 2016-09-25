@@ -57,7 +57,6 @@ export default {
                 that.offset++
                 that.isLoading = true
                 that.getCommodities(that.limit, that.offset).then((data) => {
-                    debugger
                     that.commodities = that.commodities.concat(data.data)
                     that.totalPage = data.total_page
                     that.isLoading = false

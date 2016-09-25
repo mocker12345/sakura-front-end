@@ -31,7 +31,6 @@ export default {
   created() {
       var that = this
       this.getGalleryData().then((data) => {
-          debugger
           that.galleryData = data.data
 
           that.$nextTick(()=>{

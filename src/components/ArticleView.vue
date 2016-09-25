@@ -20,7 +20,6 @@ export default {
           var articleId = to.params.id
           var that = this
           return this.getArticleData(articleId).then((data) => {
-              debugger
               return {
                   articleData: data,
                   isSigleArticle: !data.children.length
