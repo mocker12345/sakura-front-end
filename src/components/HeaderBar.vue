@@ -57,6 +57,9 @@ export default {
         padding: 25px;
         .nav-wrapper {
             overflow: hidden;
+            .right a{
+                font-size: 1.5rem;
+            }
         }
         .side-logo {
             text-align: center;
@@ -64,7 +67,7 @@ export default {
             background: #424242;
             line-height: 80px;
             background-color: $bgColor;
-            font-size: 30px;
+            font-size: 2.25rem;
             border-bottom: 1px solid #ddd;
             &:hover {
             }
@@ -73,7 +76,7 @@ export default {
             background-color: $bgColor;
             a {
                 text-align: center;
-                font-size: 3rem;
+                font-size: 2.25rem;
                 height: 100px;
                 line-height: 100px;
 

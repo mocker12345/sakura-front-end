@@ -69,7 +69,7 @@ export default {
             padding: 5px;
         }
         .result-title {
-            font-size: 20px;
+            font-size: 1.5rem;
             color: #333;
             overflow: hidden;
             display: block;
@@ -77,12 +77,12 @@ export default {
 
         }
         .result-price {
-            font-size: 16px;
+            font-size: 1.5rem;
             color: #e60012;
             margin-top: 11px;
         }
         .result-content {
-            font-size: 18px;
+            font-size: 1.5rem;
             line-height: 25px;
             color: #666;
             word-wrap: break-word;
@@ -104,13 +104,15 @@ export default {
         }
         .view-result {
             p {
-                width: 80px;
-                height: 30px;
+                // width: 80px;
+                // height: 30px;
+                padding: 5px 10px;
                 line-height: 30px;
-                font-size: 16px;
+                font-size: 1.5rem;
                 color: #fff;
                 background: #ea7780;
                 text-align: center;
+                border-radius: 2px;
                 margin: 0 !important;
             }
             a {

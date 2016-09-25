@@ -111,7 +111,7 @@ export default {
                 left: 0;
                 position: absolute;
                 h3 {
-                    font-size: 14px;
+                    font-size: 1rem;
                     padding: 0 10px;
                     color: #fafafa;
                     line-height: 100%;

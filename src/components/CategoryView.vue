@@ -134,7 +134,7 @@ export default {
 
     }
     .modal-btn.grey.darken-3 {
-        background-color: rgba(66,66,66,.8) !important;
+        background-color: rgba(66,66,66,.6) !important;
     }
     .content {
         padding-left: 10px;
@@ -166,7 +166,7 @@ export default {
         .modal-content {
             .collection {
                 .collection-item {
-                    font-size: 2.5rem;
+                    font-size: 1.75rem;
                     padding: 20px 40px;
                     text-align: center;
                     cursor: pointer;
@@ -179,7 +179,7 @@ export default {
             }
             h4 {
                 text-align: center;
-                font-size: 3.5rem;
+                font-size: 2.25rem;
             }
             padding: 25px;
         }

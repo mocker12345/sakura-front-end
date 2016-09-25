@@ -12,7 +12,7 @@
                     <i class="material-icons right">more_vert</i>
                 </span>
                 <p>
-                    <a :href="'#/article/'+article.id" v-text="article.summary">This is a link</a>
+                    <a :href="'#/article/'+article.id" v-text="article.summary"></a>
                 </p>
             </div>
             <div class="card-reveal">
@@ -20,7 +20,7 @@
                     {{article.title}}
                     <i class="material-icons right">close</i>
                 </span>
-                <p v-html="article.summary">Here is some more information about this product that is only revealed once clicked on.</p>
+                <p v-html="article.summary"></p>
             </div>
         </div>
     </li>
@@ -53,6 +53,22 @@ this.$dispatch('ITEM_ATTACHED');
         box-shadow: 0 0 0 !important;
         &:hover {
             box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.16), 0 2px 10px 0 rgba(0, 0, 0, 0.12) !important;
+        }
+        .card-content {
+            .card-title {
+                font-size: 2rem;
+            }
+            p a {
+                font-size: 1.75rem;
+            }
+        }
+        .card-reveal {
+            .card-title {
+                font-size: 2rem;
+            }
+            p {
+                font-size: 1.75rem;
+            }
         }
     }
 </style>

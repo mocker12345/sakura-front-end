@@ -53,5 +53,8 @@ export default {
         left: 0;
         right: 0;
     }
+    .footer-copyright {
+        font-size: 1.25rem;
+    }
 
 </style>
