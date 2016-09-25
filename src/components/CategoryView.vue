@@ -72,9 +72,21 @@ export default {
             })
         })
     },
+    watch: {
+        'categoryId': function(newVal, oldVal) {
+            clearInterval(this.timer)
+            debugger
+            this.timer = setInterval(function() {
+                $('.article-list').masonry({
+                    itemSelector : '.item'
+                })
+            }, 2000)
+        }
+    },
     ready() {
         var self = this
         $('.article-list').imagesLoaded(() => {
+            clearInterval(self.timer)
             self.timer = setInterval(function() {
               $('.article-list').masonry({
                   itemSelector : '.item'
