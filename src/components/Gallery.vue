@@ -1,12 +1,12 @@
 <template lang="html">
     <div class="box grey lighten-5">
-      <div class="swiper-container container">
+      <div class="swiper-container swiper-container-pc container hide-on-med-and-down">
         <div class="swiper-wrapper">
             <div class="swiper-slide" v-for="gallery in galleryData">
                 <a :href="'#/article/'+gallery.id"></a>
                 <img :src="gallery.cover_url" alt="" />
                 <div class="tip">
-                    <h3 v-text="gallery.summary"></h3>
+                    <h3 v-text="gallery.title"></h3>
                 </div>
             </div>
         </div>
@@ -17,6 +17,19 @@
         <!-- 如果需要滚动条 -->
         <!-- <div class="swiper-scrollbar"></div> -->
       </div>
+
+      <div class="swiper-container swiper-container-mobile hide-on-large-only">
+        <div class="swiper-wrapper">
+            <div class="swiper-slide" v-for="gallery in galleryData">
+                <a :href="'#/article/'+gallery.id"></a>
+                <img :src="gallery.cover_url" alt="" />
+                <div class="tip">
+                    <h3 v-text="gallery.title"></h3>
+                </div>
+            </div>
+        </div>
+        <div class="swiper-pagination-mobile"></div>
+    </div>
     </div>
 </template>
 
@@ -34,7 +47,7 @@ export default {
           that.galleryData = data.data
 
           that.$nextTick(()=>{
-            var swiper = new Swiper('.swiper-container', {
+            var swiperPc = new Swiper('.swiper-container-pc', {
               direction: 'horizontal',
               loop:true,
               effect : 'coverflow',
@@ -59,7 +72,18 @@ export default {
               // 如果需要滚动条
               // scrollbar: '.swiper-scrollbar',
             })
+            var swiperMobile = new Swiper('.swiper-container-mobile', {
+                direction: 'horizontal',
+                loop:true,
+                // effect : 'coverflow',
+                slidesPerView: 1,
+                centeredSlides: true,
+                autoplay:3000,
+                // autoplayDisableOnInteraction : false,
+                pagination: '.swiper-pagination-mobile'
+            })
           })
+
       })
 
 
@@ -112,7 +136,7 @@ export default {
                 position: absolute;
                 h3 {
                     font-size: 2rem;
-                    padding: 0 10px;
+                    padding: 10px 10px;
                     color: #fafafa;
                     line-height: 100%;
                     margin: 10px 0;

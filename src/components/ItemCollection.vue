@@ -26,7 +26,19 @@ export default {
   ],
 
   ready () {
-
+      var self = this
+      $('.items').imagesLoaded(() => {
+          self.timer = setInterval(() => {
+            //   debugger
+            $('.items').masonry({
+                itemSelector : '.item'
+            });
+            $('.items img').css({
+                'visibility': 'visible'
+            })
+        }, 2000)
+          self.isLoading = false
+      })
   },
 
   created () {
@@ -34,18 +46,7 @@ export default {
   },
 
   attached () {
-      var self = this
-      $('.items').imagesLoaded(() => {
-          setInterval(() => {
-            $('.items').masonry({
-                itemSelector : '.item'
-            });
-            $('.items img').css({
-                'visibility': 'visible'
-            })
-          }, 1000)
-          self.isLoading = false
-      })
+
   },
 
   data () {
@@ -53,6 +54,10 @@ export default {
           isLoading: true,
           items: []
       }
+  },
+
+  beforeDestroy () {
+      clearInterval(this.timer)
   },
 
   route: {
