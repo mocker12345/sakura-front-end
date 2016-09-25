@@ -45,9 +45,9 @@
             font-size: 16px;
         }
     }
-    @media only screen and (min-width:1200px) {
+    @media only screen and (min-width:1080px) {
         html {
-            font-size: 10px;
+            font-size: 12px;
         }
     }
     // @media screen and (min-width:480px) and (max-width:639px) {

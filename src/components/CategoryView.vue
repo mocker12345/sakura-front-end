@@ -14,7 +14,7 @@
                     <a href="javascript:void(0);">{{ categoryName }}</a>
                 </div>
                 <ul class="article-list clearfix">
-                    <item v-for="article in articles" :article="article" class="cate-item"></item>
+                    <item v-for="article in articles" :article="article" class="item"></item>
                 </ul>
             </div>
         </div>
@@ -54,7 +54,8 @@ export default {
             limit: 6,
             offset: 1,
             totalPage: 0,
-            articles: []
+            articles: [],
+            timer: []
         }
     },
     computed: {},
@@ -75,15 +76,15 @@ export default {
         var self = this
         $('.items').imagesLoaded(() => {
             self.timer = setInterval(() => {
+                debugger
               $('.article-list').masonry({
-                  itemSelector : '.cate-item'
-              });
-            }, 500)
+                  itemSelector : '.item'
+              })
+          }, 2000)
         })
 
         $(document).scroll(function() {
           if ($(document).scrollTop() >= $(document).height()-$(window).height()-100) {
-              debugger
               if (self.offset < self.totalPage) {
                   self.offset++
                   self.isLoading = true
@@ -98,7 +99,6 @@ export default {
               }
           }
         })
-
     },
     attached() {},
     methods: {
@@ -106,7 +106,6 @@ export default {
             return api.category.get()
         },
         switchCategory: function(categoryId, categoryName) {
-            debugger
             this.categoryId = categoryId
             this.categoryName = categoryName
             // 切换category后，将this.offset置为 1
