@@ -44,8 +44,8 @@ export default {
     }
     .go-top {
         background: #424242;
-        width: 60px !important;
-        height: 60px !important;
+        width: 50px !important;
+        height: 50px !important;
         border-radius: 50%;
         &:hover {
             background-color: #303030;
@@ -53,8 +53,8 @@ export default {
         }
         i {
             color: #fafafa;
-            line-height: 60px !important;
-            font-size: 4.5rem !important;
+            line-height: 50px !important;
+            font-size: 2rem !important;
         }
     }
 </style>
