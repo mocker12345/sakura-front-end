@@ -60,6 +60,7 @@ this.$dispatch('ITEM_ATTACHED');
             }
             p a {
                 font-size: 1.75rem;
+                color: #606060;
             }
         }
         .card-reveal {

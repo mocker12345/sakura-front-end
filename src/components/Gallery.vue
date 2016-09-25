@@ -6,7 +6,7 @@
                 <a :href="'#/article/'+gallery.id"></a>
                 <img :src="gallery.cover_url" alt="" />
                 <div class="tip">
-                    <h3 v-text="gallery.summary">这里是简介。。。</h3>
+                    <h3 v-text="gallery.summary"></h3>
                 </div>
             </div>
         </div>
@@ -111,7 +111,7 @@ export default {
                 left: 0;
                 position: absolute;
                 h3 {
-                    font-size: 1rem;
+                    font-size: 2rem;
                     padding: 0 10px;
                     color: #fafafa;
                     line-height: 100%;
