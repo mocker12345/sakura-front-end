@@ -55,7 +55,7 @@ export default {
             offset: 1,
             totalPage: 0,
             articles: [],
-            timer: []
+            timer: null
         }
     },
     computed: {},
@@ -75,8 +75,7 @@ export default {
     ready() {
         var self = this
         $('.items').imagesLoaded(() => {
-            self.timer = setInterval(() => {
-                debugger
+            self.timer = setInterval(function() {
               $('.article-list').masonry({
                   itemSelector : '.item'
               })

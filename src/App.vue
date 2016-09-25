@@ -47,7 +47,7 @@
     }
     @media only screen and (min-width:1080px) {
         html {
-            font-size: 12px;
+            font-size: 10px;
         }
     }
     // @media screen and (min-width:480px) and (max-width:639px) {
