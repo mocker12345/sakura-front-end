@@ -54,6 +54,9 @@ export default {
     font-weight: bold;
     letter-spacing: 2px
   }
+  .article img {
+    width: 100%
+  }
   .buy-title {
       margin-bottom: 20px;
       font-size: 18px;
