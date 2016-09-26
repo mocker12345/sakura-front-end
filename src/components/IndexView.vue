@@ -52,7 +52,7 @@
 
         data () {
             return {
-                limit: 4,
+                limit: 12,
                 offset: 1,
                 totalPage: 0,
                 articles: []
