@@ -55,7 +55,7 @@ export default {
             categoryId: undefined,
             categoryName: '',
             // 以下为分页参数
-            limit: 4,
+            limit: 8,
             offset: 1,
             totalPage: 0,
             articles: [],
