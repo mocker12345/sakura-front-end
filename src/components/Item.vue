@@ -3,7 +3,7 @@
         <div class="card">
             <div class="card-image waves-effect waves-block waves-light">
                 <a :href="'#/article/'+article.id">
-                    <img class="activator" :src="article.cover_url">
+                    <img class="activator" src="../assets/load.gif" data-original="{{article.cover_url}}" >
                 </a>
             </div>
             <div class="card-content">
@@ -30,20 +30,36 @@
 export default {
     name: 'Item',
     data() {
-        return {}
+        return {
+
+        }
     },
     props: [
         'article',
-        'img'
+        'img',
+        'articleNum'
     ],
     computed: {},
     ready() {
+      $("img").lazyload({
+       failurelimit:40,
+       load:this.loadImag
+      });
 
     },
     attached() {
       this.$dispatch('ITEM_ATTACHED');
     },
-    methods: {},
+    methods: {
+      loadImag(){
+        if(this.articleNum != 0){
+          this.articleNum--;
+          if(this.articleNum === 0){
+            this.$dispatch('is-load')
+          }
+        }
+      }
+    },
     components: {}
 };
 </script>
@@ -54,6 +70,7 @@ export default {
         &:hover {
             box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.16), 0 2px 10px 0 rgba(0, 0, 0, 0.12) !important;
         }
+
         .card-content {
             .card-title {
                 line-height: 24px;

@@ -4,8 +4,8 @@
     <div class="progress" v-if="isLoading">
          <div class="indeterminate"></div>
     </div>
-    <ul class="items row">
-        <item class="item" v-for="article in articles" :article="article"></item>
+    <ul class="items row" >
+        <item class="item" v-for="article in articles" :article="article" :article-num="articleNum"></item>
     </ul>
   </div>
 </template>
@@ -27,18 +27,27 @@ export default {
 
   ready () {
       var self = this
-      $('.items').imagesLoaded(() => {
-          self.timer = setInterval(() => {
-            //   debugger
-            $('.items').masonry({
-                itemSelector : '.item'
-            });
-            $('.items img').css({
-                'visibility': 'visible'
-            })
-        }, 2000)
-          self.isLoading = false
+      this.$on('is-load',function(){
+        debugger
+        $('.items').masonry({
+             itemSelector : '.item'
+         });
+         $('.items').css('visibility', 'visible');
+         self.isLoading = false
       })
+        // $('.items img').css({
+        //           'visibility': 'visible'
+        //       })
+        // self.isLoading = false
+  },
+  watch:{
+    'articles':function(newVal,oldVal){
+
+      if (newVal.length != 0 && !this.flag) {
+        this.articleNum = this.articles.length;
+        this.flag = true;
+      }
+    }
   },
 
   created () {
@@ -46,13 +55,20 @@ export default {
   },
 
   attached () {
-
+  },
+  methods:{
+    isLoad(){
+      $('.items').masonry({
+            itemSelector : '.item'
+        });
+    }
   },
 
   data () {
       return {
           isLoading: true,
-          items: []
+          flag:false,
+          articleNum:null
       }
   },
 
@@ -78,8 +94,8 @@ export default {
         margin-top: 100px;
     }
     .items {
-        img {
-            visibility: hidden;
-        }
+      visibility: hidden;
+      // height: 150px;
+      // overflow: hidden;
     }
 </style>
