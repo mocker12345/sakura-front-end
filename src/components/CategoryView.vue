@@ -16,7 +16,10 @@
                 <ul class="article-list clearfix">
                     <item v-for="article in articles" :article="article" class="item"></item>
                 </ul>
+                <!-- 分页 -->
+
             </div>
+            <pagination :limit="limit" :offset.sync="offset" :total-page="totalPage" v-if="articles.length !== 0"></pagination>
         </div>
         <a class="waves-effect waves-light btn modal-trigger modal-btn grey darken-3 hide-on-large-only" @click="openModal" >选择分类</a>
         <!-- Modal Structure -->
@@ -44,6 +47,7 @@
 <script>
 import MenuList from './MenuList.vue'
 import Item from './Item.vue'
+import Pagination from './Pagination.vue'
 export default {
     data() {
         return {
@@ -51,7 +55,7 @@ export default {
             categoryId: undefined,
             categoryName: '',
             // 以下为分页参数
-            limit: 3,
+            limit: 4,
             offset: 1,
             totalPage: 0,
             articles: [],
@@ -84,6 +88,13 @@ export default {
                     })
                 }, 800)
             }
+        },
+        'offset': function(newOffset, oldOffset) {
+            var self = this
+            this.getArticlesByCategoryId(this.categoryId, this.limit, newOffset).then(function(data) {
+                self.articles = data.data
+                self.totalPage = data.total_page
+            })
         },
         // 'isLoading':function(newVal,oldVal) {
         //   if (this.grid && !newVal){
@@ -168,7 +179,8 @@ export default {
     },
     components: {
         MenuList,
-        Item
+        Item,
+        Pagination
     },
     beforeDestroy () {
         clearInterval(this.timer)

@@ -31,9 +31,11 @@
 
         watch: {
             'offset': function(newOffset, oldOffset) {
-                var data = this.getArticles(this.limit, newOffset)
-                this.articles = data.data
-                this.totalPage = data.total_page
+                var self = this
+                this.getArticles(this.limit, newOffset).then(function(data) {
+                    self.articles = data.data
+                    self.totalPage = data.total_page
+                })
             },
         },
         methods: {
@@ -50,7 +52,7 @@
 
         data () {
             return {
-                limit: 12,
+                limit: 4,
                 offset: 1,
                 totalPage: 0,
                 articles: []

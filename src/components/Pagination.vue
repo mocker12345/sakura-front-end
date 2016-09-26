@@ -3,7 +3,7 @@
         <ul class="pagination">
             <li v-bind:class="{'disabled': isPreDisabled, 'waves-effect': !isPreDisabled}"
                 v-on:click="pre">
-                <a href="#!" class="pre-or-next">
+                <a href="javascript:void(0)" class="pre-or-next">
                     <i class="material-icons">chevron_left</i>
                 </a>
             </li>
@@ -14,7 +14,7 @@
             </li>
             <li v-bind:class="{'disabled': isNextDisabled, 'waves-effect': !isNextDisabled}"
                 v-on:click="next">
-                <a href="#!" class="pre-or-next">
+                <a href="javascript:void(0)" class="pre-or-next">
                     <i class="material-icons">
                         chevron_right
                     </i>
@@ -33,7 +33,7 @@ export default {
             // totalPage: 38,
             visiblePage: 10,
             // msg: '',
-            isNextDisabled: true,
+            isNextDisabled: false,
             isPreDisabled: true
         };
     },
@@ -75,7 +75,6 @@ export default {
         pageChange: function(page) {
             if (this.offset != page) {
                 this.offset = page
-
             }
         },
         pre: function() {
