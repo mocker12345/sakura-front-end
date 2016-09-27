@@ -5,13 +5,8 @@ import IndexView from './components/IndexView.vue'
 import ZdmView from './components/ZdmView.vue'
 import CategoryView from './components/CategoryView.vue'
 import ArticleView from './components/ArticleView.vue'
-import VueLazyLoad from 'vue-lazyload'
 Vue.use(Router)
 var router = new Router()
-Vue.use(VueLazyLoad,{
-  preload:1.3,
-  loading:'../static/load.gif'
-})
 router.map({
     '/index': {
         component: IndexView
