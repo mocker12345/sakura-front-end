@@ -36,8 +36,8 @@ export default {
   .hot-topics {
     cursor: pointer;
     .card-image {
-      height: 100px;
-      width: 125px
+      height: 10rem;
+      width: 100%
     }
     img {
       height: 100%;
@@ -47,7 +47,7 @@ export default {
       word-wrap: break-word;
       margin: 0;
       padding: 0 5px !important;
-      font-size: .5rem;
+      font-size: 0.9rem;
       background: rgba(0,0,0,.4);
       width: 100%;
     }

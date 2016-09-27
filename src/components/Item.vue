@@ -43,6 +43,7 @@ export default {
     ready() {
       $("img").lazyload({
        failurelimit:40,
+       threshold : 600,
        load:this.loadImag
       });
 

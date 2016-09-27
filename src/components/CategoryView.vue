@@ -14,6 +14,25 @@
                     <a href="javascript:void(0);">{{ categoryName }}</a>
                 </div>
                 <ul class="article-list clearfix">
+                  <div class="loader" v-if="isLoading">
+                    <span>L</span>
+                    <span>O</span>
+                    <span>A</span>
+                    <span>D</span>
+                    <span>I</span>
+                    <span>N</span>
+                    <span>G</span>
+
+                    <div class="covers">
+                      <span></span>
+                      <span></span>
+                      <span></span>
+                      <span></span>
+                      <span></span>
+                      <span></span>
+                      <span></span>
+                    </div>
+                  </div>
                     <item v-for="article in articles" :article="article" class="item"></item>
                 </ul>
                 <!-- 分页 -->
@@ -52,7 +71,7 @@ export default {
     data() {
         return {
             categories: [],
-            categoryId: undefined,
+            categoryId: null,
             categoryName: '',
             // 以下为分页参数
             limit: 8,
@@ -60,7 +79,7 @@ export default {
             totalPage: 0,
             articles: [],
             timer: null,
-            isLoading:null
+            isLoading:true
         }
     },
     computed: {},
@@ -71,7 +90,9 @@ export default {
             that.categories = data.data
             that.categoryId = -1
             that.categoryName = '全部'
+            this.isLoading = true;
             that.getArticlesByCategoryId(that.categoryId, that.limit, that.offset).then((data) => {
+              this.isLoading = false;
               that.totalPage = data.total_page
               that.articles = data.data
             })
@@ -79,19 +100,22 @@ export default {
     },
     watch: {
         'categoryId': function(newVal, oldVal) {
-            if (this.grid && oldVal !== undefined) {
+            if (this.grid && oldVal !== null) {
                 this.grid.masonry('destroy')
                 var self = this
                 self.timer = setTimeout(function() {
                     self.grid.masonry({
                         itemSelector: '.item'
                     })
-                }, 800)
+                }, 200)
             }
         },
         'offset': function(newOffset, oldOffset) {
             var self = this
+            this.isLoading = true;
+            this.articles =[]
             this.getArticlesByCategoryId(this.categoryId, this.limit, newOffset).then(function(data) {
+                this.isLoading = false;
                 self.articles = data.data
                 self.totalPage = data.total_page
             })
@@ -118,26 +142,6 @@ export default {
                 })
             },800)
         })
-
-        $(document).scroll(function() {
-          if ($(document).height() - $(window).height() - $(document).scrollTop() < 10) {
-              if (self.offset < self.totalPage) {
-                  self.offset++
-                  self.isLoading = true
-                  self.getArticlesByCategoryId(self.categoryId, self.limit, self.offset).then((data) => {
-                      // self.articles = self.articles.concat(data.data)
-                      self.totalPage = data.total_page
-                      self.isLoading = false
-                      // var item = $('.item')
-                      // self.grid.append(item)masonry('appended',item)
-                      // debugger;
-                  })
-              } else {
-                  self.noMore = true
-                  self.isLoading = false
-              }
-          }
-        })
     },
     attached() {},
     methods: {
@@ -151,7 +155,10 @@ export default {
             this.offset = 1
             var that = this
             $('#modal1').closeModal()
+            this.isLoading = true;
+            this.articles =[]
             this.getArticlesByCategoryId(this.categoryId, this.limit, this.offset).then(function(data) {
+              that.isLoading = false;
               that.totalPage = data.total_page
               that.articles = data.data
             })
@@ -240,6 +247,9 @@ export default {
         max-height: 100% !important;
         margin: auto !important;
         border-radius: 10px 10px 0 0 !important;
+        .preloader-wrapper.active {
+          background-color: #ccc
+        }
         .modal-content {
             .collection {
                 .collection-item {
@@ -264,4 +274,57 @@ export default {
             height: auto;
         }
     }
+    .loader {
+  position: relative;
+  margin: auto;
+  width: 350px;
+  color: white;
+  font-family: "Roboto Condensed", sans-serif;
+  font-size: 250%;
+  background: linear-gradient(180deg, #222 0, #444 100%);
+  box-shadow: inset 0 5px 20px black;
+  text-shadow: 5px 5px 5px rgba(0,0,0,0.3);
+  &:after {
+    content: "";
+    display: table;
+    clear: both;
+  }
+  span {
+    float: left;
+    height: 100px;
+    line-height: 120px;
+    width: 50px;
+  }
+}
+
+
+.loader > span {
+  border-left: 1px solid #444;
+  border-right: 1px solid #222;
+}
+
+.covers {
+  position: absolute;
+  height: 100%;
+  width: 100%;
+}
+
+.covers span {
+  background: linear-gradient(180deg, white 0, #ddd 100%);
+  animation: up 2s infinite;
+}
+
+@keyframes up {
+  0%   { margin-bottom: 0; }
+  16%  { margin-bottom: 100%; height: 20px; }
+  50% { margin-bottom: 0; }
+  100% { margin-bottom: 0; }
+}
+
+.covers span:nth-child(2) { animation-delay: .142857s; }
+.covers span:nth-child(3) { animation-delay: .285714s; }
+.covers span:nth-child(4) { animation-delay: .428571s; }
+.covers span:nth-child(5) { animation-delay: .571428s; }
+.covers span:nth-child(6) { animation-delay: .714285s; }
+.covers span:nth-child(7) { animation-delay: .857142s; }
 </style>

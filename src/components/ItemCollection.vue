@@ -28,10 +28,10 @@ export default {
   ready () {
       var self = this
       this.$on('is-load',function(){
-        debugger
         $('.items').masonry({
              itemSelector : '.item'
          });
+         debugger;
          $('.items').css('visibility', 'visible');
          self.isLoading = false
       })
@@ -87,9 +87,9 @@ export default {
 </script>
 
 <style lang="scss">
-    .item-collection {
-        overflow: hidden;
-    }
+    // .item-collection {
+    //     overflow: hidden;
+    // }
     .progress {
         margin-top: 100px;
     }

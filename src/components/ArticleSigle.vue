@@ -49,6 +49,9 @@ export default {
 <style lang="scss">
 .sigle-container {
   margin-top: 20px;
+  .article p{
+    font-size: 1.4rem
+  }
   .article-title {
     padding: 20px;
     font-weight: bold;
@@ -68,10 +71,11 @@ export default {
       padding: 0 15px;
   }
   .card-content {
-      padding: 0!important;
+      padding: 1rem;
     }
   .card-action {
       padding: 20px 0;
+      font-size: 1.3rem;
       .buy-btn {
           padding: 10px 15px;
           border-radius: 10%;

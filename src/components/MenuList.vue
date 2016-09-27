@@ -36,8 +36,12 @@ export default {
     methods: {
         getArticlesByCategory: function(categoryId, index, categoryName) {
             $('.menu-list-item').removeClass('active')
-            $('.menu-list-item').eq(index).addClass('active')
-            this.$emit('category-changed', categoryId, categoryName)
+
+            if (!$('.menu-list-item').eq(index).hasClass('active')) {
+                $('.menu-list-item').eq(index).addClass('active')
+                this.$emit('category-changed', categoryId, categoryName)
+            }
+
         }
     },
     components: {}
