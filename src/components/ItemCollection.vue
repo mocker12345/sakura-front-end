@@ -1,5 +1,4 @@
 <template>
-
   <div class="item-collection container">
     <div class="progress" v-if="isLoading">
          <div class="indeterminate"></div>
@@ -31,14 +30,10 @@ export default {
         $('.items').masonry({
              itemSelector : '.item'
          });
-         debugger;
          $('.items').css('visibility', 'visible');
          self.isLoading = false
       })
-        // $('.items img').css({
-        //           'visibility': 'visible'
-        //       })
-        // self.isLoading = false
+
   },
   watch:{
     'articles':function(newVal,oldVal){
